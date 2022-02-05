@@ -409,4 +409,4 @@ async def chap(ctx, role: discord.role.Role = None, num: int = None):
     return
 
 
-bot.run('OTE0MDgwNzQ0MzQ1ODQ1Nzcx.YaH2CA.rqlPPYevqqUiMGlSg396HKGlIXo')
+bot.run('Normalement on est pas censé laisser un token comme ça')
