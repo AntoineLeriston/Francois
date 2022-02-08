@@ -17,10 +17,6 @@ slash = SlashCommand(bot, sync_commands=True)
 
 os.chdir('C:\\Users\\sav\\PycharmProjects\\pythonProject')
 
-
-musics = {}
-ytdl = youtube_dl.YoutubeDL()
-
 bot = discord.ext.commands.Bot(command_prefix="!", description="Prefix : !")
 
 
@@ -434,7 +430,7 @@ async def chap(ctx, role: discord.role.Role = None, num: int = None):
 
 
 
-
+##################################### JEU DE CARTES-PERSONNAGES ###################################
 
 """
 Jeu de cartes-personnages : JCP (Jean-Christophe-Paul lolilolxdptdr)
@@ -1673,7 +1669,7 @@ async def proces(ctx):
 
 
 
-##################################### DÉBUT SYSTÈME MUSICAL ###################################
+##################################### SYSTÈME MUSICAL ###################################
 
 
 musics = {}
