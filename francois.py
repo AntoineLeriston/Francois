@@ -1,4 +1,8 @@
-import asyncio
+"""
+CODE DU BOT FRANCOIS. Bienvenue, bonne lecture !
+Si jamais il y a un manque de clareté quelque part, un conseil à donner, n'hésite pas à me le dire !
+"""
+
 import json
 import os
 import random
