@@ -24,9 +24,6 @@ os.chdir('C:\\Users\\sav\\PycharmProjects\\pythonProject')
 bot = discord.ext.commands.Bot(command_prefix="!", description="Prefix : !")
 
 
-
-
-
 @bot.event
 async def on_ready():
     """
@@ -38,9 +35,6 @@ async def on_ready():
     DiscordComponents(bot)
 
 
-    
-    
-    
 @bot.command()
 async def stop(ctx):
     """
@@ -56,9 +50,6 @@ async def stop(ctx):
         return
 
 
-    
-    
-    
 @bot.command()
 async def francois(ctx):
     """
@@ -79,9 +70,6 @@ async def francois(ctx):
         "personnage préféré d'Antoine, tout manga confondu.")
 
 
-    
-    
-    
 @bot.command()
 async def debug(ctx):
     """
@@ -90,9 +78,6 @@ async def debug(ctx):
     await ctx.send("François vous reçoit parfaitement depuis la borne radio de la famille Nanami, prêt à vous servir !")
 
 
-    
-    
-    
 @bot.command()
 async def mt(ctx):
     """
@@ -102,9 +87,6 @@ async def mt(ctx):
     await ctx.send("François vous souhaite une excellente journée et plein de bonnes choses ! @everyone !")
 
 
-    
-    
-    
 @bot.command()
 async def poll(ctx, text, *, message):
     """
@@ -119,10 +101,7 @@ async def poll(ctx, text, *, message):
     await msg.add_reaction('👎')
     await msg.add_reaction('✋')
 
-    
-    
 
-    
 @bot.command()
 async def say(ctx, *text):
     """
@@ -135,9 +114,6 @@ async def say(ctx, *text):
         await ctx.send("François n'écoute que son maître Ryusui et son maître Antoine.")
 
 
-        
-        
-        
 @bot.command()
 async def nr(ctx):
     """
@@ -147,9 +123,6 @@ async def nr(ctx):
     await ctx.send(
         f"François a choisi un numéro aléatoire entre 1 et 100, comme vous lui avez demandé : {random.randint(1, 100)}")
     return
-
-
-
 
 
 @bot.command()
@@ -162,9 +135,6 @@ async def eude(ctx):
         "Selon la théorie du Eudisme, nous nous appelons tous Eude et devons tous respect envers Eude Le Magnifique. "
         "Or, nous nous appelons tous Eude, donc nous nous devons tous du respect.")
     return
-
-
-
 
 
 @bot.command()
@@ -187,9 +157,6 @@ async def jap(ctx, *text):
     await ctx.send("".join(japtext))
 
 
-    
-    
-    
 @bot.command()
 async def insult(ctx, user: discord.Member):
     """
@@ -200,9 +167,6 @@ async def insult(ctx, user: discord.Member):
         f"Et bien malheureusement, il est fort aisé de dire que {user.mention} n'est pas une personne très "
         f"recommandable...")
 
-    
-    
-    
 
 @bot.command()
 async def question(ctx):
@@ -235,9 +199,6 @@ async def question(ctx):
         return
 
 
-    
-    
-    
 @bot.command()
 async def mineur(ctx):
     """
@@ -245,9 +206,6 @@ async def mineur(ctx):
     """
     await ctx.send(f"Arrière chevalier {ctx.author.mention} !")
     return
-
-
-
 
 
 @bot.command()
@@ -266,9 +224,6 @@ async def club(ctx):
     return
 
 
-
-
-
 @bot.event
 async def on_command_error(ctx, exc):
     """
@@ -279,9 +234,6 @@ async def on_command_error(ctx, exc):
         await ctx.send(embed=em)
 
 
-        
-        
-        
 @bot.command()
 async def ttd(ctx):
     """
@@ -305,20 +257,20 @@ async def ttd(ctx):
     if m == 0 and h == 0 and j == 0 and a == 0:
         await ctx.send(f"{member.mention} n'a plus que {str(s)} secondes à vivre ! Une dernière parole ? ")
     elif h == 0 and j == 0 and a == 0:
-        await ctx.send(f"{member.mention} n'a plus que {str(m)} minutes et {str(s)} secondes à vivre ! Une dernière danse éventuellement ?")
+        await ctx.send(
+            f"{member.mention} n'a plus que {str(m)} minutes et {str(s)} secondes à vivre ! Une dernière danse éventuellement ?")
     elif j == 0 and a == 0:
-        await ctx.send(f"{member.mention} n'a plus que {str(h)} heures, {str(m)} minutes et {str(s)} secondes à vivre ! N'oubliez pas de fermer la porte à clé avant de partir !")
+        await ctx.send(
+            f"{member.mention} n'a plus que {str(h)} heures, {str(m)} minutes et {str(s)} secondes à vivre ! N'oubliez pas de fermer la porte à clé avant de partir !")
     elif a == 0:
-        await ctx.send(f"{member.mention} n'a plus que {str(j)} jours, {str(h)} heures, {str(m)} minutes et {str(s)} secondes à vivre ! Un petit dernier test PCR avant le repos éternel ?")
+        await ctx.send(
+            f"{member.mention} n'a plus que {str(j)} jours, {str(h)} heures, {str(m)} minutes et {str(s)} secondes à vivre ! Un petit dernier test PCR avant le repos éternel ?")
     elif a != 0:
         await ctx.send \
             (f"{member.mention} en a encore pour {str(a)} années, {str(j)} jours, {str(h)} heures, {str(m)} minutes "
              f"et {str(s)} secondes avant de mourir ! N'oubliez pas de relire intégralement au moins"
              f" {random.randint(1000, 5000)} fois Berserk avant de monter au ciel !")
     return
-
-
-
 
 
 @bot.command()
@@ -341,9 +293,6 @@ async def covid(ctx):
              "de la réception de ce message) vous sera automatiquement envoyé par mail sous 48 heures.")
 
 
-        
-        
-        
 @bot.command()
 async def manga(ctx, role: discord.role.Role = None, num: int = None):
     """
@@ -398,9 +347,6 @@ async def manga(ctx, role: discord.role.Role = None, num: int = None):
                     await ctx.send(embed=em)
 
 
-                    
-                    
-                    
 @bot.command()
 async def chap(ctx, role: discord.role.Role = None, num: int = None):
     """
@@ -430,134 +376,326 @@ async def chap(ctx, role: discord.role.Role = None, num: int = None):
     return
 
 
-
-
-
-
 ##################################### JEU DE CARTES-PERSONNAGES ###################################
 
 """
 Jeu de cartes-personnages : JCP (Jean-Christophe-Paul lolilolxdptdr)
 """
 
-
-
 # Ici, on définit les prix des différents niveaux de prestige des cartes.
 rar = [0, 2500, 4500, 10000, 25000, 50000, 100000, 1000000]
-
-
-
 
 # Ici, tous les réglages de toutes les cartes.
 # Cela se présente de la manière suivante:
 # {prenom, nom, manga, lien d'image, prestige, prix correspondant, indice, points d'attaque, points de défense, points d'intelligence}
-# Il est nécessaire de suivre ce système tout en veillant à vérifier ses informations et à les présenter correctement. 
+# Il est nécessaire de suivre ce système tout en veillant à vérifier ses informations et à les présenter correctement.
 # Présenter correctement les informations permet de gagner un temps monstrueux dans le code de François.
 
-cards = [{'prenom':'Eren', 'nom':'JAEGER', 'manga': 'Shingeki no Kyojin', 'url' : 'https://images-ext-2.discordapp.net/external/gj-JhfgMkGpJYfm916Picy5xYhf9pNZhGGIuzZlln-o/https/imgur.com/vk8yfPv.png', 'rarete' : 6, 'prix': rar[6], 'num' : 1, 'attack' : 306, 'defense' : 100, 'intelligence' : 354},
-         {'prenom':'Mikasa', 'nom':'ACKERMAN', 'manga': 'Shingeki no Kyojin', 'url' : 'https://cdn.shopify.com/s/files/1/0502/5506/9351/products/product-image-660195173_600x600.jpg', 'rarete' : 4, 'prix': rar[4], 'num': 2, 'attack' : 200, 'defense' : 88, 'intelligence' : 50},
-         {'prenom':'Armin', 'nom':'ARLELT', 'manga': 'Shingeki no Kyojin', 'url' : 'https://pbs.twimg.com/media/EWPRWRuWsAAQ9q2.jpg', 'rarete' : 4, 'prix': rar[4], 'num' : 3, 'attack' : 66, 'defense' : 22, 'intelligence' : 250},
-         {'prenom':'Livaï', 'nom':'ACKERMAN', 'manga': 'Shingeki no Kyojin', 'url' : 'http://pm1.narvii.com/7104/33d48653fdd074188feb7205769b3e5fcf996558r1-500-616v2_00.jpg', 'rarete' : 4, 'prix': rar[4], 'num' : 4, 'attack' : 200, 'defense' : 68, 'intelligence' : 70},
-         {'prenom':'Hange', 'nom':'ZOE', 'manga': 'Shingeki no Kyojin', 'url' : 'https://pbs.twimg.com/media/En7Q7sTXUAEVjWy.png', 'rarete' : 3, 'prix': rar[3], 'num' : 5, 'attack' : 42, 'defense' : 42, 'intelligence' : 141},
-         {'prenom':'Erwin', 'nom':'SMITH', 'manga': 'Shingeki no Kyojin', 'url' : 'https://i.pinimg.com/736x/3e/cf/1a/3ecf1a996c96947f1644f95a3b51dec1.jpg', 'rarete' : 4, 'prix': rar[4], 'num': 6, 'attack' : 144, 'defense' : 50, 'intelligence' : 144},
-         {'prenom':'Reiner', 'nom':'BRAUN', 'manga': 'Shingeki no Kyojin', 'url' : 'https://cdn.myanimelist.net/images/characters/2/434573.jpg', 'rarete' : 5, 'prix': rar[5], 'num' : 7, 'attack' : 200, 'defense' : 200, 'intelligence' : 107},
-         {'prenom':'Guts', 'nom':'-', 'manga': 'Berserk', 'url' : 'https://u.livelib.ru/character/1000005924/o/6rieok69/o-o.jpeg', 'rarete' : 6, 'prix': rar[6], 'num' : 8, 'attack' : 400, 'defense' : 200, 'intelligence' : 160},
-         {'prenom':'Griffith', 'nom':'-', 'manga': 'Berserk', 'url' : 'https://www.myutaku.com/media/personnage/424.jpg', 'rarete' : 6, 'prix': rar[6], 'num' : 9, 'attack' : 400, 'defense' : 100, 'intelligence' : 260},
-         {'prenom':'Zodd', 'nom':"L'IMMORTEL", 'manga': 'Berserk', 'url' : 'https://i.pinimg.com/originals/6b/1a/6a/6b1a6a72ead402776666d859cc06a746.jpg', 'rarete' : 5, 'prix': rar[5], 'num': 10, 'attack' : 300, 'defense' : 150, 'intelligence' : 57},
-         {'prenom':'Isidro', 'nom':'-', 'manga': 'Berserk', 'url' : 'https://cdn.myanimelist.net/images/characters/9/101956.jpg', 'rarete' : 3, 'prix': rar[3], 'num' : 11, 'attack' : 100, 'defense' : 75, 'intelligence' : 50},
-         {'prenom':'Puck', 'nom':'-', 'manga': 'Berserk', 'url' : 'https://i.pinimg.com/564x/e5/66/f4/e566f4faa677250e9667ad918307d34a.jpg', 'rarete' : 5, 'prix': rar[5], 'num': 12, 'attack' : 25, 'defense' : 300, 'intelligence' : 182},
-         {'prenom':'Overhaul', 'nom':'-', 'manga': 'My Hero Academia', 'url' : 'https://images-ext-1.discordapp.net/external/1F9mZUCNn8eS7hBKWoD-xjSUF8nDvLA3fFqJ3sE_g78/https/media.discordapp.net/attachments/472313197836107780/650847985407885346/GYK4tuY.png', 'rarete' : 5, 'prix': rar[5], 'num': 13, 'attack' : 175, 'defense' : 150, 'intelligence' : 182},
-         {'prenom':'Casca', 'nom':'-', 'manga': 'Berserk', 'url' : 'https://i.pinimg.com/550x/38/ce/52/38ce52501d5d0fa6753822e42d178b5c.jpg', 'rarete' : 5, 'prix': rar[5], 'num': 14, 'attack' : 300, 'defense' : 100, 'intelligence' : 107},
-         {'prenom':'Izuku', 'nom':'MIDORIYA', 'manga': 'My Hero Academia', 'url' : 'https://i.imgur.com/9ZVqwMR.png', 'rarete' : 6, 'prix': rar[6], 'num': 15, 'attack' : 300, 'defense' : 300, 'intelligence' : 160},
-         {'prenom':'Shoto', 'nom':'TODOROKI', 'manga': 'My Hero Academia', 'url' : 'https://i.imgur.com/r20r8cP.png', 'rarete' : 4, 'prix': rar[4], 'num': 16, 'attack' : 200, 'defense' : 38, 'intelligence' : 100},
-         {'prenom':'Katsuki', 'nom':'BAKUGO', 'manga': 'Berserk', 'url' : 'https://media.discordapp.net/attachments/472313197836107780/607374138184826901/LCDja3Z.png', 'rarete' : 4, 'prix': rar[4], 'num': 17, 'attack' : 300, 'defense' : 30, 'intelligence' : 8},
-         {'prenom':'All', 'nom':'MIGHT', 'manga': 'My Hero Academia', 'url' : 'https://media.discordapp.net/attachments/472313197836107780/548387244830883863/J4Aytmy.png', 'rarete' : 5, 'prix': rar[5], 'num': 18, 'attack' : 400, 'defense' : 57, 'intelligence' : 50},
-         {'prenom':'Tomura', 'nom':'SHIGARAKI', 'manga': 'My Hero Academia', 'url' : 'https://media.discordapp.net/attachments/472313197836107780/607441132779077633/VH0ie55.png', 'rarete' : 5, 'prix': rar[5], 'num': 19, 'attack' : 300, 'defense' : 50, 'intelligence' : 57},
-         {'prenom':'Senku', 'nom':'ISHIGAMI', 'manga': 'Dr.STONE', 'url' : 'https://media.discordapp.net/attachments/472313197836107780/683811788818612310/f3EQrEK.png', 'rarete' : 6, 'prix': rar[6], 'num': 20, 'attack' : 30, 'defense' : 30, 'intelligence' : 700},
-         {'prenom':'Gen', 'nom':'ASAGIRI', 'manga': 'Dr.STONE', 'url' : 'https://media.discordapp.net/attachments/472313197836107780/700555854247755816/HsP3XZZ.png', 'rarete' : 5, 'prix': rar[5], 'num': 21,'attack' : 25, 'defense' : 32, 'intelligence' : 450},
-         {'prenom':'Momo', 'nom':'YAOYOROZU', 'manga': 'My Hero Academia', 'url' : 'https://media.discordapp.net/attachments/872026548692209738/872046426371264553/gLJOLqv.png', 'rarete' : 3, 'prix': rar[3], 'num': 22, 'attack' : 100, 'defense' : 25, 'intelligence' : 100},
-         {'prenom':'Francois', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://media.discordapp.net/attachments/872026548692209738/872090371113500702/WHqdN2Y.png', 'rarete' : 7, 'prix': rar[7], 'num': 23, 'attack' : 380, 'defense' : 380, 'intelligence' : 380},
-         {'prenom':'Tsuyu', 'nom':'ASUI', 'manga': 'My Hero Academia', 'url' : 'https://media.discordapp.net/attachments/872026548692209738/872046479857045554/b8ylcnY.png', 'rarete' : 2, 'prix': rar[2], 'num': 24, 'attack' : 50, 'defense' : 50, 'intelligence' : 50},
-         {'prenom':'Ochako', 'nom':'URARAKA', 'manga': 'My Hero Academia', 'url' : 'https://media.discordapp.net/attachments/472313197836107780/748703664712974386/05lWtiW.png', 'rarete' : 3, 'prix': rar[3], 'num': 25, 'attack' : 25, 'defense' : 150, 'intelligence' : 50},
-         {'prenom':'Eijiro', 'nom':'KIRISHIMA', 'manga': 'My Hero Academia', 'url' : 'https://i.imgur.com/LzkdIQe.png', 'rarete' : 2, 'prix': rar[2], 'num': 26, 'attack' : 50, 'defense' : 75, 'intelligence' : 25},
-         {'prenom':'Eren', 'nom':'JAEGER', 'manga': 'Shingeki no Kyojin', 'url' : 'https://images-ext-2.discordapp.net/external/IdHhaW_g3TsNlbtZ9GJ7k0O62X2VQANc4rns0l4DaTw/https/imgur.com/evOZYlZ.png', 'rarete' : 0, 'prix': rar[0], 'num': 27, 'attack' : 0, 'defense' : 0, 'intelligence' : 0},
-         {'prenom':'Izuku', 'nom':'MIDORIYA', 'manga': 'My Hero Academia', 'url' : 'https://media.discordapp.net/attachments/914892398918787174/939865053065265202/crop.png?width=325&height=558', 'rarete' : 0, 'prix': rar[0], 'num': 28, 'attack' : 0, 'defense' : 0, 'intelligence' : 0},
-         {'prenom':'Guts', 'nom':'-', 'manga': 'Berserk', 'url' : 'https://images-ext-1.discordapp.net/external/vckvsf2Q94Gmbw3DAcO1NVjKzGOl8iGeDPR04PZFIqg/https/imgur.com/dTfwXmX.png', 'rarete' : 0, 'prix': rar[0], 'num': 29, 'attack' : 0, 'defense' : 0, 'intelligence' : 0},
-         {'prenom':'Senku', 'nom':'ISHIGAMI', 'manga': 'Dr.STONE', 'url' : 'https://media.discordapp.net/attachments/914892398918787174/939865653081423902/unknown.png?width=442&height=559', 'rarete' : 0, 'prix': rar[0], 'num': 30, 'attack' : 0, 'defense' : 0, 'intelligence' : 0},
-         {'prenom':'Xeno', 'nom':'HOUSTON WINGFIELD', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-1.discordapp.net/external/PEmEibfW08iCUUdoE24o_CNDuCU259fdAH0gXZCUod8/https/imgur.com/AbrsLGE.png', 'rarete' : 5, 'prix': rar[5], 'num': 31, 'attack' : 27, 'defense' : 25, 'intelligence' : 450},
-         {'prenom':'Stanley', 'nom':'SNYDER', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-1.discordapp.net/external/1Klz32Y47gTa16s1Ov2QScJ1bAui4hoUtyELR8piark/https/media.discordapp.net/attachments/472313197836107780/748766733363576882/9GY3K2u.png', 'rarete' : 5, 'prix': rar[5], 'num': 32, 'attack' : 327, 'defense' : 125, 'intelligence' : 50},
-         {'prenom':'Byakuya', 'nom':'ISHIGAMI', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-2.discordapp.net/external/gZyTGIYYOgULGz4XPz5sTgdY1Sd2k9zk6uoNOKgnWdY/https/media.discordapp.net/attachments/472313197836107780/650869393428971539/mQSlY8F.png', 'rarete' : 3, 'prix': rar[3], 'num': 33, 'attack' : 75, 'defense' : 75, 'intelligence' : 75},
-         {'prenom':'Liliane', 'nom':'WEINBERG', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-2.discordapp.net/external/-Hb1B6Zop9nWQzQvrHOUjjN9UNEoQwcd-L5AuxxQIUU/https/media.discordapp.net/attachments/472313197836107780/669778085922603018/m30vi0Y.png', 'rarete' : 2, 'prix': rar[2], 'num': 34, 'attack' : 25, 'defense' : 25, 'intelligence' : 100},
-         {'prenom':'Connie', 'nom':'LEE', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-1.discordapp.net/external/ibn9ww9uSg2W2kI5w-SERQc1I2javGe2ZDVRSDcfjmc/https/media.discordapp.net/attachments/472313197836107780/650871577843597341/3sKe2LA.png', 'rarete' : 1, 'prix': rar[1], 'num': 35, 'attack' : 20, 'defense' : 20, 'intelligence' : 60},
-         {'prenom':'Shamil', 'nom':'VOLKOV', 'manga': 'Dr.STONE', 'url' : 'https://media.discordapp.net/attachments/472313197836107780/652297444075241480/tqxaHQL.png', 'rarete' : 1, 'prix': rar[1], 'num': 36, 'attack' : 40, 'defense' : 20, 'intelligence' : 40},
-         {'prenom':'Yakov', 'nom':'NIKITIN', 'manga': 'Dr.STONE', 'url' : 'https://cdn.myanimelist.net/images/characters/12/402305.jpg', 'rarete' : 1, 'prix': rar[1], 'num': 37, 'attack' : 30, 'defense' : 50, 'intelligence' : 20},
-         {'prenom':'Darya', 'nom':'NIKITINA', 'manga': 'Dr.STONE', 'url' : 'https://shikimori.one/system/characters/original/178270.jpg', 'rarete' : 1, 'prix': rar[1], 'num': 38, 'attack' : 20, 'defense' : 20, 'intelligence' : 60},
-         {'prenom':'Rei37', 'nom':'ISHIGAMI', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-1.discordapp.net/external/WHvfZA1a72ESQUVIqr95VbHs-U2gN4khjjjmHMX2gto/https/media.discordapp.net/attachments/872026548692209738/872141166328578058/fezeoNO.png', 'rarete' : 1, 'prix': rar[1], 'num': 39, 'attack' : 0, 'defense' : 0, 'intelligence' : 100},
-         {'prenom':'Yuzuriha', 'nom':'OGAWA', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-1.discordapp.net/external/CvExmXjD77rtwh8-mKhrG1-0RmOAwEqmcjVQZmMgCCc/https/media.discordapp.net/attachments/472313197836107780/608433433802178570/9BplRFo.png', 'rarete' : 2, 'prix': rar[2], 'num': 40, 'attack' : 25, 'defense' : 25, 'intelligence' : 100},
-         {'prenom':'Taiju', 'nom':'OOKI', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-2.discordapp.net/external/_AvbLfpuUzyR97iOYfiwY4UY9zs4ftnkZt_yczKuVI8/https/media.discordapp.net/attachments/872026548692209738/872071581361401887/RQAyNkc.png', 'rarete' : 3, 'prix': rar[3], 'num': 41, 'attack' : 100, 'defense' : 100, 'intelligence' : 25},
-         {'prenom':'Tsukasa', 'nom':'SHISHIO', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-2.discordapp.net/external/gGbiJxzV8MwCFE8I5mPw5FRdEZbuk8lyhyZK7VvJW00/https/imgur.com/UFY4xdF.png', 'rarete' : 5, 'prix': rar[5], 'num': 42, 'attack' : 200, 'defense' : 200, 'intelligence' : 107},
-         {'prenom':'Kohaku', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-2.discordapp.net/external/MFJgcC7w-GmvfDH_YJeqLTHAfK9ziywCcZlhp-zlk7M/https/media.discordapp.net/attachments/472313197836107780/608125696837156874/llFC3MV.png', 'rarete' : 3, 'prix': rar[3], 'num': 43, 'attack' : 150, 'defense' : 50, 'intelligence' : 25},
-         {'prenom':'Alabaster', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/dr-stone/images/7/79/Alabaster.png/revision/latest?cb=20200215103617', 'rarete' : 1, 'prix': rar[1], 'num': 44, 'attack' : 33, 'defense' : 33, 'intelligence' : 34},
-         {'prenom':'Sho', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/drstone/images/f/f1/Sho_Anime.png/revision/latest?cb=20210115203715&path-prefix=fr', 'rarete' : 1, 'prix': rar[1], 'num': 45, 'attack' : 33, 'defense' : 34, 'intelligence' : 33},
-         {'prenom':'Suika', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-2.discordapp.net/external/ogYkWbJiSapD_QnmZAKToe6z5Q79cT6s2SufZJKW7r0/https/media.discordapp.net/attachments/872026548692209738/872057312951558194/Tvm8e8P.png', 'rarete' : 4, 'prix': rar[4], 'num': 46, 'attack' : 38, 'defense' : 100, 'intelligence' : 200},
-         {'prenom':'Chitan', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/dublagem/images/1/18/Titan_DS.jpg/revision/latest?cb=20201115001707&path-prefix=pt-br', 'rarete' : 1, 'prix': rar[1], 'num': 47, 'attack' : 20, 'defense' : 60, 'intelligence' : 20},
-         {'prenom':'Carbo', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/dr-stone/images/3/3e/Carbo_Anime_Infobox.png/revision/latest?cb=20191210073242', 'rarete' : 1, 'prix': rar[1], 'num': 48, 'attack' : 25, 'defense' : 55, 'intelligence' : 20},
-         {'prenom':'Hagane', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://www.anime-planet.com/images/characters/thumbs/169837.jpg?t=1567819629', 'rarete' : 1, 'prix': rar[1], 'num': 49, 'attack' : 25, 'defense' : 50, 'intelligence' : 25},
-         {'prenom':'Genbu', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/drstone/images/d/da/Genbu_Anime.png/revision/latest?cb=20210115205034&path-prefix=fr', 'rarete' : 1, 'prix': rar[1], 'num': 50, 'attack' : 40, 'defense' : 25, 'intelligence' : 35},
-         {'prenom':'Diamond', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/dr-stone/images/6/6d/Dia_Portrait.png/revision/latest/top-crop/width/360/height/360?cb=20180901083948', 'rarete' : 1, 'prix': rar[1], 'num': 51, 'attack' : 25, 'defense' : 25, 'intelligence' : 50},
-         {'prenom':'Sango', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/dr-stone/images/0/08/Sango.png/revision/latest/top-crop/width/360/height/450?cb=20210525162114&path-prefix=es', 'rarete' : 1, 'prix': rar[1], 'num': 52, 'attack' : 25, 'defense' : 25, 'intelligence' : 50},
-         {'prenom':'Unmo', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://www.myutaku.com/media/personnage/178464.jpg', 'rarete' : 1, 'prix': rar[1], 'num': 53, 'attack' : 25, 'defense' : 50, 'intelligence' : 25},
-         {'prenom':'Suzu', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/dr-stone/images/5/5e/Suzu.jpg/revision/latest/top-crop/width/360/height/450?cb=20210524031357&path-prefix=es', 'rarete' : 1, 'prix': rar[1], 'num': 54, 'attack' : 20, 'defense' : 40, 'intelligence' : 40},
-         {'prenom':'Bery', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/dr-stone/images/0/00/Beryl_Portrait.png/revision/latest/top-crop/width/360/height/360?cb=20180901083946', 'rarete' : 1, 'prix': rar[1], 'num': 55, 'attack' : 25, 'defense' : 25, 'intelligence' : 50},
-         {'prenom':'Argo', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/dr-stone/images/2/25/Argo_Infobox.png/revision/latest?cb=20201110211145', 'rarete' : 1, 'prix': rar[1], 'num': 56, 'attack' : 40, 'defense' : 30, 'intelligence' : 30},
-         {'prenom':'Magma', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-1.discordapp.net/external/HRxL64sQKt8KTR81iGazqYmjAhSHGMXQKwbLryS5ofg/https/media.discordapp.net/attachments/472313197836107780/669744763267710976/LB5zJTb.png', 'rarete' : 2, 'prix': rar[2], 'num': 57, 'attack' : 75, 'defense' : 50, 'intelligence' : 25},
-         {'prenom':'Ruri', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-1.discordapp.net/external/ie9VQ0CxSrj02j4kpG1eKeJJggWGVkfx641sy8r77Us/https/media.discordapp.net/attachments/472313197836107780/633664284299231271/IN83Tsk.png', 'rarete' : 2, 'prix': rar[2], 'num': 58, 'attack' : 25, 'defense' : 25, 'intelligence' : 100},
-         {'prenom':'Ruby', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-1.discordapp.net/external/f5p1NluH6QYMugrDnOSdqdB3t7oOitevkpT9CUMUlfM/https/media.discordapp.net/attachments/872026548692209738/872102818926960710/oq7a4wm.png', 'rarete' : 1, 'prix': rar[1], 'num': 59, 'attack' : 25, 'defense' : 25, 'intelligence' : 50},
-         {'prenom':'Azura', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://cdn.anisearch.fr/images/character/cover/full/85/85712.webp', 'rarete' : 1, 'prix': rar[1], 'num': 60, 'attack' : 25, 'defense' : 25, 'intelligence' : 50},
-         {'prenom':'Chrome', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-2.discordapp.net/external/i6S52lyYqmF46hFRmD3XeScjCtd2i9FKGfi8BG1uMbQ/https/media.discordapp.net/attachments/872026548692209738/872060188784488458/n7fbiqr.png', 'rarete' : 3, 'prix': rar[3], 'num': 61, 'attack' : 50, 'defense' : 50, 'intelligence' : 125},
-         {'prenom':'Sagan', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://cdn-us.anidb.net/images/main/238885.jpg', 'rarete' : 1, 'prix': rar[1], 'num': 62, 'attack' : 25, 'defense' : 50, 'intelligence' : 25},
-         {'prenom':'Natori', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/dr-stone/images/9/9a/Natri_Talking.png/revision/latest?cb=20201030171834', 'rarete' : 1, 'prix': rar[1], 'num': 63, 'attack' : 25, 'defense' : 25, 'intelligence' : 50},
-         {'prenom':'Mantle', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/dr-stone/images/4/45/Mantle.png/revision/latest?cb=20210209104244', 'rarete' : 1, 'prix': rar[1], 'num': 64, 'attack' : 25, 'defense' : 25, 'intelligence' : 50},
-         {'prenom':'Kokuyo', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://www.myutaku.com/media/personnage/178454.jpg', 'rarete' : 2, 'prix': rar[2], 'num': 65, 'attack' : 25, 'defense' : 75, 'intelligence' : 50},
-         {'prenom':'Saphir', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/dr-stone/images/f/f6/Sapphire-0.png/revision/latest?cb=20200204120430', 'rarete' : 1, 'prix': rar[1], 'num': 66, 'attack' : 25, 'defense' : 25, 'intelligence' : 50},
-         {'prenom':'Kuhjaku', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/dr-stone/images/d/d8/Kujaku_Portrait.png/revision/latest?cb=20190902034852', 'rarete' : 1, 'prix': rar[1], 'num': 67, 'attack' : 25, 'defense' : 25, 'intelligence' : 50},
-         {'prenom':'Shaberu', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/dr-stone/images/1/19/Shovel_Portrait.png/revision/latest?cb=20190928054818', 'rarete' : 1, 'prix': rar[1], 'num': 68, 'attack' : 25, 'defense' : 25, 'intelligence' : 50},
-         {'prenom':'En', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/dr-stone/images/a/a4/En_Portrait.png/revision/latest?cb=20190902035848', 'rarete' : 1, 'prix': rar[1], 'num': 69, 'attack' : 25, 'defense' : 25, 'intelligence' : 50},
-         {'prenom':'Alumi', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/drstone/images/4/45/Alumi_Anime.png/revision/latest/top-crop/width/360/height/450?cb=20210427093730&path-prefix=fr', 'rarete' : 1, 'prix': rar[1], 'num': 70, 'attack' : 25, 'defense' : 25, 'intelligence' : 50},
-         {'prenom':'Kinro', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-2.discordapp.net/external/AhP6a9ydky4YahzFQzseePPmKmXTrv3L1L-SWYQPIxY/https/imgur.com/WCHZAnD.png', 'rarete' : 3, 'prix': rar[3], 'num': 71, 'attack' : 100, 'defense' : 50, 'intelligence' : 75},
-         {'prenom':'Shirogane', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/dr-stone/images/c/ca/Shirogane_Anime_Infobox.png/revision/latest/top-crop/width/360/height/360?cb=20200323063518', 'rarete' : 1, 'prix': rar[1], 'num': 72, 'attack' : 25, 'defense' : 25, 'intelligence' : 50},
-         {'prenom':'Jasper', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/drstone/images/c/ca/Jasper_Anime.jpg/revision/latest?cb=20201207150143&path-prefix=fr', 'rarete' : 1, 'prix': rar[1], 'num': 73, 'attack' : 25, 'defense' : 25, 'intelligence' : 50},
-         {'prenom':'Garnet', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/drstone/images/c/c4/Garnet_Anime.png/revision/latest?cb=20210122134306&path-prefix=fr', 'rarete' : 1, 'prix': rar[1], 'num': 74, 'attack' : 25, 'defense' : 25, 'intelligence' : 50},
-         {'prenom':'Chalk', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/drstone/images/8/84/Chalk_Anime_personnage.png/revision/latest?cb=20210115202839&path-prefix=fr', 'rarete' : 1, 'prix': rar[1], 'num': 75, 'attack' : 50, 'defense' : 40, 'intelligence' : 10},
-         {'prenom':'Namari', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/dr-stone/images/c/c4/Namari_Portrait.png/revision/latest?cb=20201210103602', 'rarete' : 1, 'prix': rar[1], 'num': 76, 'attack' : 25, 'defense' : 25, 'intelligence' : 50},
-         {'prenom':'Ganen', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://www.myutaku.com/media/personnage/178452.jpg', 'rarete' : 1, 'prix': rar[1], 'num': 77, 'attack' : 25, 'defense' : 40, 'intelligence' : 35},
-         {'prenom':'Kaseki', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-1.discordapp.net/external/v_vuN8ONUOXwNvqq8R6rDa8GZHaubwgCbAgIV8qJXfw/https/media.discordapp.net/attachments/472313197836107780/650871976134443008/U5a860g.png', 'rarete' : 4, 'prix': rar[4], 'num': 78, 'attack' : 50, 'defense' : 138, 'intelligence' : 150},
-         {'prenom':'Ginro', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-1.discordapp.net/external/YtSSPGPZ_W5r4W6snjtEPCdgnMu0dUU4WSzWJYlB5Qk/https/media.discordapp.net/attachments/872026548692209738/873582556501663794/1c6UnV1.png', 'rarete' : 3, 'prix': rar[3], 'num': 79, 'attack' : 100, 'defense' : 100, 'intelligence' : 25},
-         {'prenom':'Soyuz', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-1.discordapp.net/external/ysnHQFMxjrM3-gJ890jDfp_0_tta6YFv4fGn9eTrC4k/https/media.discordapp.net/attachments/472313197836107780/700569696444874773/vJK9alC.png', 'rarete' : 2, 'prix': rar[2], 'num': 80, 'attack' : 50, 'defense' : 50, 'intelligence' : 50},
-         {'prenom':'Turquoise', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/drstone/images/0/0a/Turquoise_Anime.jpg/revision/latest?cb=20201207150511&path-prefix=fr', 'rarete' : 1, 'prix': rar[1], 'num': 81, 'attack' : 25, 'defense' : 25, 'intelligence' : 50},
-         {'prenom':'Hyoga', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-1.discordapp.net/external/0cTGat3klgtFJzw1UZ74Ub8boWaCuCNMfHkNIfzp3VQ/https/media.discordapp.net/attachments/472313197836107780/670890700874842122/dWogsu3.png', 'rarete' : 4, 'prix': rar[4], 'num': 82, 'attack' : 150, 'defense' : 50, 'intelligence' : 138},
-         {'prenom':'Homura', 'nom':'MOMIJI', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-1.discordapp.net/external/8So8PpJe3uSVy1TdMgiiIZURHlyKEcGdcjdhzunHL8U/https/imgur.com/fQaUXv0.png', 'rarete' : 3, 'prix': rar[3], 'num': 83, 'attack' : 150, 'defense' : 25, 'intelligence' : 50},
-         {'prenom':'Ukyo', 'nom':'SAIONJI', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-2.discordapp.net/external/Cy9wQL3-Rc9G7a8A7Z_gq6YGlSAsZ14YgXacAhdJud8/https/media.discordapp.net/attachments/872026548692209738/872077969621909504/X7eCbY0.png', 'rarete' : 3, 'prix': rar[3], 'num': 84, 'attack' : 50, 'defense' : 50, 'intelligence' : 125},
-         {'prenom':'Nikki', 'nom':'HANADA', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-2.discordapp.net/external/PTIRKhbazcWNnZKtpqe_HD-Ts2MyT-7zz81YR3Je1DA/https/media.discordapp.net/attachments/872026548692209738/872110300428664862/TCnLeFi.png', 'rarete' : 2, 'prix': rar[2], 'num': 85, 'attack' : 50, 'defense' : 50, 'intelligence' : 50},
-         {'prenom':'You', 'nom':'UEI', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-2.discordapp.net/external/HNdp-rOHNCF5sTFNKlqE-oRSJqu05XnNw2y48wr28bQ/https/media.discordapp.net/attachments/472313197836107780/749106867258785882/BIwZ4Sd.png', 'rarete' : 2, 'prix': rar[2], 'num': 86, 'attack' : 50, 'defense' : 50, 'intelligence' : 50},
-         {'prenom':'Mirai', 'nom':'SHISHIO', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-1.discordapp.net/external/OXGel09EKmPAORwWGgkTr0S6FLm-gfwcyYZchf_rGEM/https/media.discordapp.net/attachments/872026548692209738/872189853532569650/Xa02zbH.png', 'rarete' : 2, 'prix': rar[2], 'num': 87, 'attack' : 25, 'defense' : 25, 'intelligence' : 100},
-         {'prenom':'Tetsuya', 'nom':'KINOMOTO', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/dr-stone/images/3/3f/Tetsuya_Kinomoto_%28anime%29.png/revision/latest?cb=20210325173900', 'rarete' : 1, 'prix': rar[1], 'num': 88, 'attack' : 25, 'defense' : 25, 'intelligence' : 50},
-         {'prenom':'Ryusui', 'nom':'NANAMI', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-2.discordapp.net/external/gx8u_2sPSw5WmQ6PuSKxtf1ITSlAJlpIXsIcrpo8bGk/https/imgur.com/KFTTlyn.png', 'rarete' : 5, 'prix': rar[5], 'num': 89, 'attack' : 250, 'defense' : 107, 'intelligence' : 150},
-         {'prenom':'Minami', 'nom':'HOKUTOZAI', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-1.discordapp.net/external/47ZJGi0QI_e9UYqy3Nstzcxs5f8trgw4H3YBILM4gOY/https/media.discordapp.net/attachments/472313197836107780/669428897779154944/tLjMA4Q.png', 'rarete' : 3, 'prix': rar[3], 'num': 90, 'attack' : 25, 'defense' : 25, 'intelligence' : 175},
-         {'prenom':'Senku', 'nom':'MECHA', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-1.discordapp.net/external/KPl884eqG0sjyB0bN0j0mffLRlI63copg55XGb-_m3s/https/media.discordapp.net/attachments/872026548692209738/872097046021169162/MwFltMx.png', 'rarete' : 2, 'prix': rar[2], 'num': 91, 'attack' : 0, 'defense' : 0, 'intelligence' : 150},
-         {'prenom':'Why', 'nom':'MAN', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/villains/images/f/f1/Whyman_%28DrStone%29.png/revision/latest?cb=20200912231525', 'rarete' : 5, 'prix': rar[5], 'num': 92, 'attack' : 169, 'defense' : 169, 'intelligence' : 169},
-         {'prenom':'Amaryllis', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-1.discordapp.net/external/32CEP_6WDDq9jqm3hbQLULdYvKkR7xrg-sAx9tgmjlM/https/media.discordapp.net/attachments/472313197836107780/620066738599624725/QHwluRr.png', 'rarete' : 3, 'prix': rar[3], 'num': 93, 'attack' : 25, 'defense' : 25, 'intelligence' : 175},
-         {'prenom':'Kirisame', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-2.discordapp.net/external/8GEhgMmU3mNMLFp2iI_SJ7T0dXx-RKwPK5Bix_w6KAA/https/media.discordapp.net/attachments/472313197836107780/723017580826198016/BhRxrOr.png', 'rarete' : 3, 'prix': rar[3], 'num': 94, 'attack' : 150, 'defense' : 25, 'intelligence' : 50},
-         {'prenom':'Mozu', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-2.discordapp.net/external/ca5fMw5ZCtuDlIuTp4-fKxyqYaMpof0vvP-qvlsZaJA/https/media.discordapp.net/attachments/472313197836107780/683840633596936238/iqN5Ofn.png', 'rarete' : 3, 'prix': rar[3], 'num': 95, 'attack' : 175, 'defense' : 25, 'intelligence' : 25},
-         {'prenom':'Ibara', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-1.discordapp.net/external/aCQ8y4WcbWG9ab4DFX18m7iTAHAAc3U5X1-_6fhVILY/https/media.discordapp.net/attachments/472313197836107780/700102798578024508/aEiG20T.png', 'rarete' : 5, 'prix': rar[5], 'num': 96, 'attack' : 250, 'defense' : 50, 'intelligence' : 207},
-         {'prenom':'Oarashi', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://static.wikia.nocookie.net/drstone/images/d/dc/Oarashi_Manga.jpg/revision/latest/top-crop/width/360/height/450?cb=20201207184330&path-prefix=fr', 'rarete' : 2, 'prix': rar[2], 'num': 97, 'attack' : 100, 'defense' : 25, 'intelligence' : 25},
-         {'prenom':'Matsukaze', 'nom':'-', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-1.discordapp.net/external/hPL7F3QBJWlTtWB_K50KUDdlRsfQQri6ZjmwIK8euyE/https/media.discordapp.net/attachments/472313197836107780/723663534180925542/EbBYdtm.png', 'rarete' : 3, 'prix': rar[3], 'num': 98, 'attack' : 100, 'defense' : 50, 'intelligence' : 75},
-         {'prenom':'Luna', 'nom':'WRIGHT', 'manga': 'Dr.STONE', 'url' : 'https://images-ext-2.discordapp.net/external/68FRVAXf5JwB7HkUpeLFHvmNDi3NF6eLKlqulz7nizE/https/media.discordapp.net/attachments/872026548692209738/873582754841911347/qMsFaK1.png', 'rarete' : 2, 'prix': rar[2], 'num': 99, 'attack' : 25, 'defense' : 25, 'intelligence' : 100},
-         {'prenom':'Nada', 'nom':'Might', 'manga': 'My Hero Academia', 'url' : 'https://images-ext-1.discordapp.net/external/2ZPBhrOtRz9J1HCifRh3j8s45gQXXdt-9ncgp-vL550/https/imgur.com/0qh1ZZh.png', 'rarete' : 7, 'prix': rar[7], 'num': 100, 'attack' : 380, 'defense' : 380, 'intelligence' : 380},
-         {'prenom':'Ichigo', 'nom':'KUROSAKI', 'manga': 'Bleach', 'url' : 'https://media.discordapp.net/attachments/472313197836107780/547313673618849802/Q3zXdxc.png', 'rarete' : 6, 'prix': rar[6], 'num': 101, 'attack' : 400, 'defense' : 260, 'intelligence' : 100},
-         {'prenom':'Gon', 'nom':'FREECSS', 'manga': 'Hunter x Hunter', 'url' : 'https://media.discordapp.net/attachments/472313197836107780/548304744716828694/qwAipui.png', 'rarete' : 6, 'prix': rar[6], 'num': 102, 'attack' : 360, 'defense' : 200, 'intelligence' : 200},
-         {'prenom':'Musashi', 'nom':'MIYAMOTO', 'manga': 'Vagabond', 'url' : 'https://media.discordapp.net/attachments/472313197836107780/553756734058135565/1dlB5Hj.png', 'rarete' : 6, 'prix': rar[6], 'num': 103, 'attack' : 460, 'defense' : 100, 'intelligence' : 200}]
-
+cards = [{'prenom': 'Eren', 'nom': 'JAEGER', 'manga': 'Shingeki no Kyojin',
+          'url': 'https://images-ext-2.discordapp.net/external/gj-JhfgMkGpJYfm916Picy5xYhf9pNZhGGIuzZlln-o/https/imgur.com/vk8yfPv.png',
+          'rarete': 6, 'prix': rar[6], 'num': 1, 'attack': 306, 'defense': 100, 'intelligence': 354},
+         {'prenom': 'Mikasa', 'nom': 'ACKERMAN', 'manga': 'Shingeki no Kyojin',
+          'url': 'https://cdn.shopify.com/s/files/1/0502/5506/9351/products/product-image-660195173_600x600.jpg',
+          'rarete': 4, 'prix': rar[4], 'num': 2, 'attack': 200, 'defense': 88, 'intelligence': 50},
+         {'prenom': 'Armin', 'nom': 'ARLELT', 'manga': 'Shingeki no Kyojin',
+          'url': 'https://pbs.twimg.com/media/EWPRWRuWsAAQ9q2.jpg', 'rarete': 4, 'prix': rar[4], 'num': 3, 'attack': 66,
+          'defense': 22, 'intelligence': 250},
+         {'prenom': 'Livaï', 'nom': 'ACKERMAN', 'manga': 'Shingeki no Kyojin',
+          'url': 'http://pm1.narvii.com/7104/33d48653fdd074188feb7205769b3e5fcf996558r1-500-616v2_00.jpg', 'rarete': 4,
+          'prix': rar[4], 'num': 4, 'attack': 200, 'defense': 68, 'intelligence': 70},
+         {'prenom': 'Hange', 'nom': 'ZOE', 'manga': 'Shingeki no Kyojin',
+          'url': 'https://pbs.twimg.com/media/En7Q7sTXUAEVjWy.png', 'rarete': 3, 'prix': rar[3], 'num': 5, 'attack': 42,
+          'defense': 42, 'intelligence': 141},
+         {'prenom': 'Erwin', 'nom': 'SMITH', 'manga': 'Shingeki no Kyojin',
+          'url': 'https://i.pinimg.com/736x/3e/cf/1a/3ecf1a996c96947f1644f95a3b51dec1.jpg', 'rarete': 4, 'prix': rar[4],
+          'num': 6, 'attack': 144, 'defense': 50, 'intelligence': 144},
+         {'prenom': 'Reiner', 'nom': 'BRAUN', 'manga': 'Shingeki no Kyojin',
+          'url': 'https://cdn.myanimelist.net/images/characters/2/434573.jpg', 'rarete': 5, 'prix': rar[5], 'num': 7,
+          'attack': 200, 'defense': 200, 'intelligence': 107},
+         {'prenom': 'Guts', 'nom': '-', 'manga': 'Berserk',
+          'url': 'https://u.livelib.ru/character/1000005924/o/6rieok69/o-o.jpeg', 'rarete': 6, 'prix': rar[6], 'num': 8,
+          'attack': 400, 'defense': 200, 'intelligence': 160},
+         {'prenom': 'Griffith', 'nom': '-', 'manga': 'Berserk',
+          'url': 'https://www.myutaku.com/media/personnage/424.jpg', 'rarete': 6, 'prix': rar[6], 'num': 9,
+          'attack': 400, 'defense': 100, 'intelligence': 260},
+         {'prenom': 'Zodd', 'nom': "L'IMMORTEL", 'manga': 'Berserk',
+          'url': 'https://i.pinimg.com/originals/6b/1a/6a/6b1a6a72ead402776666d859cc06a746.jpg', 'rarete': 5,
+          'prix': rar[5], 'num': 10, 'attack': 300, 'defense': 150, 'intelligence': 57},
+         {'prenom': 'Isidro', 'nom': '-', 'manga': 'Berserk',
+          'url': 'https://cdn.myanimelist.net/images/characters/9/101956.jpg', 'rarete': 3, 'prix': rar[3], 'num': 11,
+          'attack': 100, 'defense': 75, 'intelligence': 50},
+         {'prenom': 'Puck', 'nom': '-', 'manga': 'Berserk',
+          'url': 'https://i.pinimg.com/564x/e5/66/f4/e566f4faa677250e9667ad918307d34a.jpg', 'rarete': 5, 'prix': rar[5],
+          'num': 12, 'attack': 25, 'defense': 300, 'intelligence': 182},
+         {'prenom': 'Overhaul', 'nom': '-', 'manga': 'My Hero Academia',
+          'url': 'https://images-ext-1.discordapp.net/external/1F9mZUCNn8eS7hBKWoD-xjSUF8nDvLA3fFqJ3sE_g78/https/media.discordapp.net/attachments/472313197836107780/650847985407885346/GYK4tuY.png',
+          'rarete': 5, 'prix': rar[5], 'num': 13, 'attack': 175, 'defense': 150, 'intelligence': 182},
+         {'prenom': 'Casca', 'nom': '-', 'manga': 'Berserk',
+          'url': 'https://i.pinimg.com/550x/38/ce/52/38ce52501d5d0fa6753822e42d178b5c.jpg', 'rarete': 5, 'prix': rar[5],
+          'num': 14, 'attack': 300, 'defense': 100, 'intelligence': 107},
+         {'prenom': 'Izuku', 'nom': 'MIDORIYA', 'manga': 'My Hero Academia', 'url': 'https://i.imgur.com/9ZVqwMR.png',
+          'rarete': 6, 'prix': rar[6], 'num': 15, 'attack': 300, 'defense': 300, 'intelligence': 160},
+         {'prenom': 'Shoto', 'nom': 'TODOROKI', 'manga': 'My Hero Academia', 'url': 'https://i.imgur.com/r20r8cP.png',
+          'rarete': 4, 'prix': rar[4], 'num': 16, 'attack': 200, 'defense': 38, 'intelligence': 100},
+         {'prenom': 'Katsuki', 'nom': 'BAKUGO', 'manga': 'Berserk',
+          'url': 'https://media.discordapp.net/attachments/472313197836107780/607374138184826901/LCDja3Z.png',
+          'rarete': 4, 'prix': rar[4], 'num': 17, 'attack': 300, 'defense': 30, 'intelligence': 8},
+         {'prenom': 'All', 'nom': 'MIGHT', 'manga': 'My Hero Academia',
+          'url': 'https://media.discordapp.net/attachments/472313197836107780/548387244830883863/J4Aytmy.png',
+          'rarete': 5, 'prix': rar[5], 'num': 18, 'attack': 400, 'defense': 57, 'intelligence': 50},
+         {'prenom': 'Tomura', 'nom': 'SHIGARAKI', 'manga': 'My Hero Academia',
+          'url': 'https://media.discordapp.net/attachments/472313197836107780/607441132779077633/VH0ie55.png',
+          'rarete': 5, 'prix': rar[5], 'num': 19, 'attack': 300, 'defense': 50, 'intelligence': 57},
+         {'prenom': 'Senku', 'nom': 'ISHIGAMI', 'manga': 'Dr.STONE',
+          'url': 'https://media.discordapp.net/attachments/472313197836107780/683811788818612310/f3EQrEK.png',
+          'rarete': 6, 'prix': rar[6], 'num': 20, 'attack': 30, 'defense': 30, 'intelligence': 700},
+         {'prenom': 'Gen', 'nom': 'ASAGIRI', 'manga': 'Dr.STONE',
+          'url': 'https://media.discordapp.net/attachments/472313197836107780/700555854247755816/HsP3XZZ.png',
+          'rarete': 5, 'prix': rar[5], 'num': 21, 'attack': 25, 'defense': 32, 'intelligence': 450},
+         {'prenom': 'Momo', 'nom': 'YAOYOROZU', 'manga': 'My Hero Academia',
+          'url': 'https://media.discordapp.net/attachments/872026548692209738/872046426371264553/gLJOLqv.png',
+          'rarete': 3, 'prix': rar[3], 'num': 22, 'attack': 100, 'defense': 25, 'intelligence': 100},
+         {'prenom': 'Francois', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://media.discordapp.net/attachments/872026548692209738/872090371113500702/WHqdN2Y.png',
+          'rarete': 7, 'prix': rar[7], 'num': 23, 'attack': 380, 'defense': 380, 'intelligence': 380},
+         {'prenom': 'Tsuyu', 'nom': 'ASUI', 'manga': 'My Hero Academia',
+          'url': 'https://media.discordapp.net/attachments/872026548692209738/872046479857045554/b8ylcnY.png',
+          'rarete': 2, 'prix': rar[2], 'num': 24, 'attack': 50, 'defense': 50, 'intelligence': 50},
+         {'prenom': 'Ochako', 'nom': 'URARAKA', 'manga': 'My Hero Academia',
+          'url': 'https://media.discordapp.net/attachments/472313197836107780/748703664712974386/05lWtiW.png',
+          'rarete': 3, 'prix': rar[3], 'num': 25, 'attack': 25, 'defense': 150, 'intelligence': 50},
+         {'prenom': 'Eijiro', 'nom': 'KIRISHIMA', 'manga': 'My Hero Academia', 'url': 'https://i.imgur.com/LzkdIQe.png',
+          'rarete': 2, 'prix': rar[2], 'num': 26, 'attack': 50, 'defense': 75, 'intelligence': 25},
+         {'prenom': 'Eren', 'nom': 'JAEGER', 'manga': 'Shingeki no Kyojin',
+          'url': 'https://images-ext-2.discordapp.net/external/IdHhaW_g3TsNlbtZ9GJ7k0O62X2VQANc4rns0l4DaTw/https/imgur.com/evOZYlZ.png',
+          'rarete': 0, 'prix': rar[0], 'num': 27, 'attack': 0, 'defense': 0, 'intelligence': 0},
+         {'prenom': 'Izuku', 'nom': 'MIDORIYA', 'manga': 'My Hero Academia',
+          'url': 'https://media.discordapp.net/attachments/914892398918787174/939865053065265202/crop.png?width=325&height=558',
+          'rarete': 0, 'prix': rar[0], 'num': 28, 'attack': 0, 'defense': 0, 'intelligence': 0},
+         {'prenom': 'Guts', 'nom': '-', 'manga': 'Berserk',
+          'url': 'https://images-ext-1.discordapp.net/external/vckvsf2Q94Gmbw3DAcO1NVjKzGOl8iGeDPR04PZFIqg/https/imgur.com/dTfwXmX.png',
+          'rarete': 0, 'prix': rar[0], 'num': 29, 'attack': 0, 'defense': 0, 'intelligence': 0},
+         {'prenom': 'Senku', 'nom': 'ISHIGAMI', 'manga': 'Dr.STONE',
+          'url': 'https://media.discordapp.net/attachments/914892398918787174/939865653081423902/unknown.png?width=442&height=559',
+          'rarete': 0, 'prix': rar[0], 'num': 30, 'attack': 0, 'defense': 0, 'intelligence': 0},
+         {'prenom': 'Xeno', 'nom': 'HOUSTON WINGFIELD', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-1.discordapp.net/external/PEmEibfW08iCUUdoE24o_CNDuCU259fdAH0gXZCUod8/https/imgur.com/AbrsLGE.png',
+          'rarete': 5, 'prix': rar[5], 'num': 31, 'attack': 27, 'defense': 25, 'intelligence': 450},
+         {'prenom': 'Stanley', 'nom': 'SNYDER', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-1.discordapp.net/external/1Klz32Y47gTa16s1Ov2QScJ1bAui4hoUtyELR8piark/https/media.discordapp.net/attachments/472313197836107780/748766733363576882/9GY3K2u.png',
+          'rarete': 5, 'prix': rar[5], 'num': 32, 'attack': 327, 'defense': 125, 'intelligence': 50},
+         {'prenom': 'Byakuya', 'nom': 'ISHIGAMI', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-2.discordapp.net/external/gZyTGIYYOgULGz4XPz5sTgdY1Sd2k9zk6uoNOKgnWdY/https/media.discordapp.net/attachments/472313197836107780/650869393428971539/mQSlY8F.png',
+          'rarete': 3, 'prix': rar[3], 'num': 33, 'attack': 75, 'defense': 75, 'intelligence': 75},
+         {'prenom': 'Liliane', 'nom': 'WEINBERG', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-2.discordapp.net/external/-Hb1B6Zop9nWQzQvrHOUjjN9UNEoQwcd-L5AuxxQIUU/https/media.discordapp.net/attachments/472313197836107780/669778085922603018/m30vi0Y.png',
+          'rarete': 2, 'prix': rar[2], 'num': 34, 'attack': 25, 'defense': 25, 'intelligence': 100},
+         {'prenom': 'Connie', 'nom': 'LEE', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-1.discordapp.net/external/ibn9ww9uSg2W2kI5w-SERQc1I2javGe2ZDVRSDcfjmc/https/media.discordapp.net/attachments/472313197836107780/650871577843597341/3sKe2LA.png',
+          'rarete': 1, 'prix': rar[1], 'num': 35, 'attack': 20, 'defense': 20, 'intelligence': 60},
+         {'prenom': 'Shamil', 'nom': 'VOLKOV', 'manga': 'Dr.STONE',
+          'url': 'https://media.discordapp.net/attachments/472313197836107780/652297444075241480/tqxaHQL.png',
+          'rarete': 1, 'prix': rar[1], 'num': 36, 'attack': 40, 'defense': 20, 'intelligence': 40},
+         {'prenom': 'Yakov', 'nom': 'NIKITIN', 'manga': 'Dr.STONE',
+          'url': 'https://cdn.myanimelist.net/images/characters/12/402305.jpg', 'rarete': 1, 'prix': rar[1], 'num': 37,
+          'attack': 30, 'defense': 50, 'intelligence': 20},
+         {'prenom': 'Darya', 'nom': 'NIKITINA', 'manga': 'Dr.STONE',
+          'url': 'https://shikimori.one/system/characters/original/178270.jpg', 'rarete': 1, 'prix': rar[1], 'num': 38,
+          'attack': 20, 'defense': 20, 'intelligence': 60},
+         {'prenom': 'Rei37', 'nom': 'ISHIGAMI', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-1.discordapp.net/external/WHvfZA1a72ESQUVIqr95VbHs-U2gN4khjjjmHMX2gto/https/media.discordapp.net/attachments/872026548692209738/872141166328578058/fezeoNO.png',
+          'rarete': 1, 'prix': rar[1], 'num': 39, 'attack': 0, 'defense': 0, 'intelligence': 100},
+         {'prenom': 'Yuzuriha', 'nom': 'OGAWA', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-1.discordapp.net/external/CvExmXjD77rtwh8-mKhrG1-0RmOAwEqmcjVQZmMgCCc/https/media.discordapp.net/attachments/472313197836107780/608433433802178570/9BplRFo.png',
+          'rarete': 2, 'prix': rar[2], 'num': 40, 'attack': 25, 'defense': 25, 'intelligence': 100},
+         {'prenom': 'Taiju', 'nom': 'OOKI', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-2.discordapp.net/external/_AvbLfpuUzyR97iOYfiwY4UY9zs4ftnkZt_yczKuVI8/https/media.discordapp.net/attachments/872026548692209738/872071581361401887/RQAyNkc.png',
+          'rarete': 3, 'prix': rar[3], 'num': 41, 'attack': 100, 'defense': 100, 'intelligence': 25},
+         {'prenom': 'Tsukasa', 'nom': 'SHISHIO', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-2.discordapp.net/external/gGbiJxzV8MwCFE8I5mPw5FRdEZbuk8lyhyZK7VvJW00/https/imgur.com/UFY4xdF.png',
+          'rarete': 5, 'prix': rar[5], 'num': 42, 'attack': 200, 'defense': 200, 'intelligence': 107},
+         {'prenom': 'Kohaku', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-2.discordapp.net/external/MFJgcC7w-GmvfDH_YJeqLTHAfK9ziywCcZlhp-zlk7M/https/media.discordapp.net/attachments/472313197836107780/608125696837156874/llFC3MV.png',
+          'rarete': 3, 'prix': rar[3], 'num': 43, 'attack': 150, 'defense': 50, 'intelligence': 25},
+         {'prenom': 'Alabaster', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/dr-stone/images/7/79/Alabaster.png/revision/latest?cb=20200215103617',
+          'rarete': 1, 'prix': rar[1], 'num': 44, 'attack': 33, 'defense': 33, 'intelligence': 34},
+         {'prenom': 'Sho', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/drstone/images/f/f1/Sho_Anime.png/revision/latest?cb=20210115203715&path-prefix=fr',
+          'rarete': 1, 'prix': rar[1], 'num': 45, 'attack': 33, 'defense': 34, 'intelligence': 33},
+         {'prenom': 'Suika', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-2.discordapp.net/external/ogYkWbJiSapD_QnmZAKToe6z5Q79cT6s2SufZJKW7r0/https/media.discordapp.net/attachments/872026548692209738/872057312951558194/Tvm8e8P.png',
+          'rarete': 4, 'prix': rar[4], 'num': 46, 'attack': 38, 'defense': 100, 'intelligence': 200},
+         {'prenom': 'Chitan', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/dublagem/images/1/18/Titan_DS.jpg/revision/latest?cb=20201115001707&path-prefix=pt-br',
+          'rarete': 1, 'prix': rar[1], 'num': 47, 'attack': 20, 'defense': 60, 'intelligence': 20},
+         {'prenom': 'Carbo', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/dr-stone/images/3/3e/Carbo_Anime_Infobox.png/revision/latest?cb=20191210073242',
+          'rarete': 1, 'prix': rar[1], 'num': 48, 'attack': 25, 'defense': 55, 'intelligence': 20},
+         {'prenom': 'Hagane', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://www.anime-planet.com/images/characters/thumbs/169837.jpg?t=1567819629', 'rarete': 1,
+          'prix': rar[1], 'num': 49, 'attack': 25, 'defense': 50, 'intelligence': 25},
+         {'prenom': 'Genbu', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/drstone/images/d/da/Genbu_Anime.png/revision/latest?cb=20210115205034&path-prefix=fr',
+          'rarete': 1, 'prix': rar[1], 'num': 50, 'attack': 40, 'defense': 25, 'intelligence': 35},
+         {'prenom': 'Diamond', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/dr-stone/images/6/6d/Dia_Portrait.png/revision/latest/top-crop/width/360/height/360?cb=20180901083948',
+          'rarete': 1, 'prix': rar[1], 'num': 51, 'attack': 25, 'defense': 25, 'intelligence': 50},
+         {'prenom': 'Sango', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/dr-stone/images/0/08/Sango.png/revision/latest/top-crop/width/360/height/450?cb=20210525162114&path-prefix=es',
+          'rarete': 1, 'prix': rar[1], 'num': 52, 'attack': 25, 'defense': 25, 'intelligence': 50},
+         {'prenom': 'Unmo', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://www.myutaku.com/media/personnage/178464.jpg', 'rarete': 1, 'prix': rar[1], 'num': 53,
+          'attack': 25, 'defense': 50, 'intelligence': 25},
+         {'prenom': 'Suzu', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/dr-stone/images/5/5e/Suzu.jpg/revision/latest/top-crop/width/360/height/450?cb=20210524031357&path-prefix=es',
+          'rarete': 1, 'prix': rar[1], 'num': 54, 'attack': 20, 'defense': 40, 'intelligence': 40},
+         {'prenom': 'Bery', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/dr-stone/images/0/00/Beryl_Portrait.png/revision/latest/top-crop/width/360/height/360?cb=20180901083946',
+          'rarete': 1, 'prix': rar[1], 'num': 55, 'attack': 25, 'defense': 25, 'intelligence': 50},
+         {'prenom': 'Argo', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/dr-stone/images/2/25/Argo_Infobox.png/revision/latest?cb=20201110211145',
+          'rarete': 1, 'prix': rar[1], 'num': 56, 'attack': 40, 'defense': 30, 'intelligence': 30},
+         {'prenom': 'Magma', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-1.discordapp.net/external/HRxL64sQKt8KTR81iGazqYmjAhSHGMXQKwbLryS5ofg/https/media.discordapp.net/attachments/472313197836107780/669744763267710976/LB5zJTb.png',
+          'rarete': 2, 'prix': rar[2], 'num': 57, 'attack': 75, 'defense': 50, 'intelligence': 25},
+         {'prenom': 'Ruri', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-1.discordapp.net/external/ie9VQ0CxSrj02j4kpG1eKeJJggWGVkfx641sy8r77Us/https/media.discordapp.net/attachments/472313197836107780/633664284299231271/IN83Tsk.png',
+          'rarete': 2, 'prix': rar[2], 'num': 58, 'attack': 25, 'defense': 25, 'intelligence': 100},
+         {'prenom': 'Ruby', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-1.discordapp.net/external/f5p1NluH6QYMugrDnOSdqdB3t7oOitevkpT9CUMUlfM/https/media.discordapp.net/attachments/872026548692209738/872102818926960710/oq7a4wm.png',
+          'rarete': 1, 'prix': rar[1], 'num': 59, 'attack': 25, 'defense': 25, 'intelligence': 50},
+         {'prenom': 'Azura', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://cdn.anisearch.fr/images/character/cover/full/85/85712.webp', 'rarete': 1, 'prix': rar[1],
+          'num': 60, 'attack': 25, 'defense': 25, 'intelligence': 50},
+         {'prenom': 'Chrome', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-2.discordapp.net/external/i6S52lyYqmF46hFRmD3XeScjCtd2i9FKGfi8BG1uMbQ/https/media.discordapp.net/attachments/872026548692209738/872060188784488458/n7fbiqr.png',
+          'rarete': 3, 'prix': rar[3], 'num': 61, 'attack': 50, 'defense': 50, 'intelligence': 125},
+         {'prenom': 'Sagan', 'nom': '-', 'manga': 'Dr.STONE', 'url': 'https://cdn-us.anidb.net/images/main/238885.jpg',
+          'rarete': 1, 'prix': rar[1], 'num': 62, 'attack': 25, 'defense': 50, 'intelligence': 25},
+         {'prenom': 'Natori', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/dr-stone/images/9/9a/Natri_Talking.png/revision/latest?cb=20201030171834',
+          'rarete': 1, 'prix': rar[1], 'num': 63, 'attack': 25, 'defense': 25, 'intelligence': 50},
+         {'prenom': 'Mantle', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/dr-stone/images/4/45/Mantle.png/revision/latest?cb=20210209104244',
+          'rarete': 1, 'prix': rar[1], 'num': 64, 'attack': 25, 'defense': 25, 'intelligence': 50},
+         {'prenom': 'Kokuyo', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://www.myutaku.com/media/personnage/178454.jpg', 'rarete': 2, 'prix': rar[2], 'num': 65,
+          'attack': 25, 'defense': 75, 'intelligence': 50},
+         {'prenom': 'Saphir', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/dr-stone/images/f/f6/Sapphire-0.png/revision/latest?cb=20200204120430',
+          'rarete': 1, 'prix': rar[1], 'num': 66, 'attack': 25, 'defense': 25, 'intelligence': 50},
+         {'prenom': 'Kuhjaku', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/dr-stone/images/d/d8/Kujaku_Portrait.png/revision/latest?cb=20190902034852',
+          'rarete': 1, 'prix': rar[1], 'num': 67, 'attack': 25, 'defense': 25, 'intelligence': 50},
+         {'prenom': 'Shaberu', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/dr-stone/images/1/19/Shovel_Portrait.png/revision/latest?cb=20190928054818',
+          'rarete': 1, 'prix': rar[1], 'num': 68, 'attack': 25, 'defense': 25, 'intelligence': 50},
+         {'prenom': 'En', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/dr-stone/images/a/a4/En_Portrait.png/revision/latest?cb=20190902035848',
+          'rarete': 1, 'prix': rar[1], 'num': 69, 'attack': 25, 'defense': 25, 'intelligence': 50},
+         {'prenom': 'Alumi', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/drstone/images/4/45/Alumi_Anime.png/revision/latest/top-crop/width/360/height/450?cb=20210427093730&path-prefix=fr',
+          'rarete': 1, 'prix': rar[1], 'num': 70, 'attack': 25, 'defense': 25, 'intelligence': 50},
+         {'prenom': 'Kinro', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-2.discordapp.net/external/AhP6a9ydky4YahzFQzseePPmKmXTrv3L1L-SWYQPIxY/https/imgur.com/WCHZAnD.png',
+          'rarete': 3, 'prix': rar[3], 'num': 71, 'attack': 100, 'defense': 50, 'intelligence': 75},
+         {'prenom': 'Shirogane', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/dr-stone/images/c/ca/Shirogane_Anime_Infobox.png/revision/latest/top-crop/width/360/height/360?cb=20200323063518',
+          'rarete': 1, 'prix': rar[1], 'num': 72, 'attack': 25, 'defense': 25, 'intelligence': 50},
+         {'prenom': 'Jasper', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/drstone/images/c/ca/Jasper_Anime.jpg/revision/latest?cb=20201207150143&path-prefix=fr',
+          'rarete': 1, 'prix': rar[1], 'num': 73, 'attack': 25, 'defense': 25, 'intelligence': 50},
+         {'prenom': 'Garnet', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/drstone/images/c/c4/Garnet_Anime.png/revision/latest?cb=20210122134306&path-prefix=fr',
+          'rarete': 1, 'prix': rar[1], 'num': 74, 'attack': 25, 'defense': 25, 'intelligence': 50},
+         {'prenom': 'Chalk', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/drstone/images/8/84/Chalk_Anime_personnage.png/revision/latest?cb=20210115202839&path-prefix=fr',
+          'rarete': 1, 'prix': rar[1], 'num': 75, 'attack': 50, 'defense': 40, 'intelligence': 10},
+         {'prenom': 'Namari', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/dr-stone/images/c/c4/Namari_Portrait.png/revision/latest?cb=20201210103602',
+          'rarete': 1, 'prix': rar[1], 'num': 76, 'attack': 25, 'defense': 25, 'intelligence': 50},
+         {'prenom': 'Ganen', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://www.myutaku.com/media/personnage/178452.jpg', 'rarete': 1, 'prix': rar[1], 'num': 77,
+          'attack': 25, 'defense': 40, 'intelligence': 35},
+         {'prenom': 'Kaseki', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-1.discordapp.net/external/v_vuN8ONUOXwNvqq8R6rDa8GZHaubwgCbAgIV8qJXfw/https/media.discordapp.net/attachments/472313197836107780/650871976134443008/U5a860g.png',
+          'rarete': 4, 'prix': rar[4], 'num': 78, 'attack': 50, 'defense': 138, 'intelligence': 150},
+         {'prenom': 'Ginro', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-1.discordapp.net/external/YtSSPGPZ_W5r4W6snjtEPCdgnMu0dUU4WSzWJYlB5Qk/https/media.discordapp.net/attachments/872026548692209738/873582556501663794/1c6UnV1.png',
+          'rarete': 3, 'prix': rar[3], 'num': 79, 'attack': 100, 'defense': 100, 'intelligence': 25},
+         {'prenom': 'Soyuz', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-1.discordapp.net/external/ysnHQFMxjrM3-gJ890jDfp_0_tta6YFv4fGn9eTrC4k/https/media.discordapp.net/attachments/472313197836107780/700569696444874773/vJK9alC.png',
+          'rarete': 2, 'prix': rar[2], 'num': 80, 'attack': 50, 'defense': 50, 'intelligence': 50},
+         {'prenom': 'Turquoise', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/drstone/images/0/0a/Turquoise_Anime.jpg/revision/latest?cb=20201207150511&path-prefix=fr',
+          'rarete': 1, 'prix': rar[1], 'num': 81, 'attack': 25, 'defense': 25, 'intelligence': 50},
+         {'prenom': 'Hyoga', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-1.discordapp.net/external/0cTGat3klgtFJzw1UZ74Ub8boWaCuCNMfHkNIfzp3VQ/https/media.discordapp.net/attachments/472313197836107780/670890700874842122/dWogsu3.png',
+          'rarete': 4, 'prix': rar[4], 'num': 82, 'attack': 150, 'defense': 50, 'intelligence': 138},
+         {'prenom': 'Homura', 'nom': 'MOMIJI', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-1.discordapp.net/external/8So8PpJe3uSVy1TdMgiiIZURHlyKEcGdcjdhzunHL8U/https/imgur.com/fQaUXv0.png',
+          'rarete': 3, 'prix': rar[3], 'num': 83, 'attack': 150, 'defense': 25, 'intelligence': 50},
+         {'prenom': 'Ukyo', 'nom': 'SAIONJI', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-2.discordapp.net/external/Cy9wQL3-Rc9G7a8A7Z_gq6YGlSAsZ14YgXacAhdJud8/https/media.discordapp.net/attachments/872026548692209738/872077969621909504/X7eCbY0.png',
+          'rarete': 3, 'prix': rar[3], 'num': 84, 'attack': 50, 'defense': 50, 'intelligence': 125},
+         {'prenom': 'Nikki', 'nom': 'HANADA', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-2.discordapp.net/external/PTIRKhbazcWNnZKtpqe_HD-Ts2MyT-7zz81YR3Je1DA/https/media.discordapp.net/attachments/872026548692209738/872110300428664862/TCnLeFi.png',
+          'rarete': 2, 'prix': rar[2], 'num': 85, 'attack': 50, 'defense': 50, 'intelligence': 50},
+         {'prenom': 'You', 'nom': 'UEI', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-2.discordapp.net/external/HNdp-rOHNCF5sTFNKlqE-oRSJqu05XnNw2y48wr28bQ/https/media.discordapp.net/attachments/472313197836107780/749106867258785882/BIwZ4Sd.png',
+          'rarete': 2, 'prix': rar[2], 'num': 86, 'attack': 50, 'defense': 50, 'intelligence': 50},
+         {'prenom': 'Mirai', 'nom': 'SHISHIO', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-1.discordapp.net/external/OXGel09EKmPAORwWGgkTr0S6FLm-gfwcyYZchf_rGEM/https/media.discordapp.net/attachments/872026548692209738/872189853532569650/Xa02zbH.png',
+          'rarete': 2, 'prix': rar[2], 'num': 87, 'attack': 25, 'defense': 25, 'intelligence': 100},
+         {'prenom': 'Tetsuya', 'nom': 'KINOMOTO', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/dr-stone/images/3/3f/Tetsuya_Kinomoto_%28anime%29.png/revision/latest?cb=20210325173900',
+          'rarete': 1, 'prix': rar[1], 'num': 88, 'attack': 25, 'defense': 25, 'intelligence': 50},
+         {'prenom': 'Ryusui', 'nom': 'NANAMI', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-2.discordapp.net/external/gx8u_2sPSw5WmQ6PuSKxtf1ITSlAJlpIXsIcrpo8bGk/https/imgur.com/KFTTlyn.png',
+          'rarete': 5, 'prix': rar[5], 'num': 89, 'attack': 250, 'defense': 107, 'intelligence': 150},
+         {'prenom': 'Minami', 'nom': 'HOKUTOZAI', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-1.discordapp.net/external/47ZJGi0QI_e9UYqy3Nstzcxs5f8trgw4H3YBILM4gOY/https/media.discordapp.net/attachments/472313197836107780/669428897779154944/tLjMA4Q.png',
+          'rarete': 3, 'prix': rar[3], 'num': 90, 'attack': 25, 'defense': 25, 'intelligence': 175},
+         {'prenom': 'Senku', 'nom': 'MECHA', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-1.discordapp.net/external/KPl884eqG0sjyB0bN0j0mffLRlI63copg55XGb-_m3s/https/media.discordapp.net/attachments/872026548692209738/872097046021169162/MwFltMx.png',
+          'rarete': 2, 'prix': rar[2], 'num': 91, 'attack': 0, 'defense': 0, 'intelligence': 150},
+         {'prenom': 'Why', 'nom': 'MAN', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/villains/images/f/f1/Whyman_%28DrStone%29.png/revision/latest?cb=20200912231525',
+          'rarete': 5, 'prix': rar[5], 'num': 92, 'attack': 169, 'defense': 169, 'intelligence': 169},
+         {'prenom': 'Amaryllis', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-1.discordapp.net/external/32CEP_6WDDq9jqm3hbQLULdYvKkR7xrg-sAx9tgmjlM/https/media.discordapp.net/attachments/472313197836107780/620066738599624725/QHwluRr.png',
+          'rarete': 3, 'prix': rar[3], 'num': 93, 'attack': 25, 'defense': 25, 'intelligence': 175},
+         {'prenom': 'Kirisame', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-2.discordapp.net/external/8GEhgMmU3mNMLFp2iI_SJ7T0dXx-RKwPK5Bix_w6KAA/https/media.discordapp.net/attachments/472313197836107780/723017580826198016/BhRxrOr.png',
+          'rarete': 3, 'prix': rar[3], 'num': 94, 'attack': 150, 'defense': 25, 'intelligence': 50},
+         {'prenom': 'Mozu', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-2.discordapp.net/external/ca5fMw5ZCtuDlIuTp4-fKxyqYaMpof0vvP-qvlsZaJA/https/media.discordapp.net/attachments/472313197836107780/683840633596936238/iqN5Ofn.png',
+          'rarete': 3, 'prix': rar[3], 'num': 95, 'attack': 175, 'defense': 25, 'intelligence': 25},
+         {'prenom': 'Ibara', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-1.discordapp.net/external/aCQ8y4WcbWG9ab4DFX18m7iTAHAAc3U5X1-_6fhVILY/https/media.discordapp.net/attachments/472313197836107780/700102798578024508/aEiG20T.png',
+          'rarete': 5, 'prix': rar[5], 'num': 96, 'attack': 250, 'defense': 50, 'intelligence': 207},
+         {'prenom': 'Oarashi', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://static.wikia.nocookie.net/drstone/images/d/dc/Oarashi_Manga.jpg/revision/latest/top-crop/width/360/height/450?cb=20201207184330&path-prefix=fr',
+          'rarete': 2, 'prix': rar[2], 'num': 97, 'attack': 100, 'defense': 25, 'intelligence': 25},
+         {'prenom': 'Matsukaze', 'nom': '-', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-1.discordapp.net/external/hPL7F3QBJWlTtWB_K50KUDdlRsfQQri6ZjmwIK8euyE/https/media.discordapp.net/attachments/472313197836107780/723663534180925542/EbBYdtm.png',
+          'rarete': 3, 'prix': rar[3], 'num': 98, 'attack': 100, 'defense': 50, 'intelligence': 75},
+         {'prenom': 'Luna', 'nom': 'WRIGHT', 'manga': 'Dr.STONE',
+          'url': 'https://images-ext-2.discordapp.net/external/68FRVAXf5JwB7HkUpeLFHvmNDi3NF6eLKlqulz7nizE/https/media.discordapp.net/attachments/872026548692209738/873582754841911347/qMsFaK1.png',
+          'rarete': 2, 'prix': rar[2], 'num': 99, 'attack': 25, 'defense': 25, 'intelligence': 100},
+         {'prenom': 'Nada', 'nom': 'Might', 'manga': 'My Hero Academia',
+          'url': 'https://images-ext-1.discordapp.net/external/2ZPBhrOtRz9J1HCifRh3j8s45gQXXdt-9ncgp-vL550/https/imgur.com/0qh1ZZh.png',
+          'rarete': 7, 'prix': rar[7], 'num': 100, 'attack': 380, 'defense': 380, 'intelligence': 380},
+         {'prenom': 'Ichigo', 'nom': 'KUROSAKI', 'manga': 'Bleach',
+          'url': 'https://media.discordapp.net/attachments/472313197836107780/547313673618849802/Q3zXdxc.png',
+          'rarete': 6, 'prix': rar[6], 'num': 101, 'attack': 400, 'defense': 260, 'intelligence': 100},
+         {'prenom': 'Gon', 'nom': 'FREECSS', 'manga': 'Hunter x Hunter',
+          'url': 'https://media.discordapp.net/attachments/472313197836107780/548304744716828694/qwAipui.png',
+          'rarete': 6, 'prix': rar[6], 'num': 102, 'attack': 360, 'defense': 200, 'intelligence': 200},
+         {'prenom': 'Musashi', 'nom': 'MIYAMOTO', 'manga': 'Vagabond',
+          'url': 'https://media.discordapp.net/attachments/472313197836107780/553756734058135565/1dlB5Hj.png',
+          'rarete': 6, 'prix': rar[6], 'num': 103, 'attack': 460, 'defense': 100, 'intelligence': 200}]
 
 # Repose-liens
 # Repose-liens
@@ -568,12 +706,8 @@ cards = [{'prenom':'Eren', 'nom':'JAEGER', 'manga': 'Shingeki no Kyojin', 'url' 
 # au dessus, un espace pour reposer des liens si besoin.
 
 
-
 # Ici, on définit la liste des mangas concernés par les cartes 'cards'. Si on rajoute un personnage d'un nouvel univers, il faut le nommer dans la list 'mangas'.
 mangas = ['Shingeki no Kyojin', 'Berserk', 'My Hero Academia', 'Dr.STONE', 'Bleach', 'Hunter x Hunter', 'Vagabond']
-
-
-
 
 
 def compteetoile(text: str) -> int:
@@ -588,16 +722,13 @@ def compteetoile(text: str) -> int:
     return cpt
 
 
-
-
-
 # 'number' est la list des symboles correspondants aux chiffres
 number = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 
 def verifnombre(text):
     """
-    Vérifie que 'text' est exclusivement constitué de chiffres. 
+    Vérifie que 'text' est exclusivement constitué de chiffres.
     """
     i = 0
     while i < len(text):
@@ -605,9 +736,6 @@ def verifnombre(text):
             return False
         i = i + 1
     return True
-
-
-
 
 
 @bot.command()
@@ -648,8 +776,8 @@ async def search(ctx, recherche):
 
                 em = discord.Embed(title=f'{item["prenom"]} {nom}', color=couleur)
                 em.add_field(name='Manga :', value=f'{item["manga"]}')
-                em.add_field(name="Prestige :", value=f"{item['rarete']*'⭐'}")
-                em.add_field(name="Prix :", value = f"{item['prix']} PM")
+                em.add_field(name="Prestige :", value=f"{item['rarete'] * '⭐'}")
+                em.add_field(name="Prix :", value=f"{item['prix']} PM")
                 em.set_image(url=f"{item['url']}")
 
                 await ctx.send(embed=em)
@@ -671,7 +799,7 @@ async def search(ctx, recherche):
                 else:
                     nom = cards[i]['nom']
 
-                message = message + f'{cards[i]["prenom"]} {nom} | {cards[i]["manga"]} | {cards[i]["rarete"]*"⭐"} | {cards[i]["prix"]} PM \n ---------------------------------------------- \n'
+                message = message + f'{cards[i]["prenom"]} {nom} | {cards[i]["manga"]} | {cards[i]["rarete"] * "⭐"} | {cards[i]["prix"]} PM \n ---------------------------------------------- \n'
             i = i + 1
         if message == '':
             await ctx.send(f"Aucun personnage ne possède {nb}⭐ de prestige.")
@@ -680,16 +808,15 @@ async def search(ctx, recherche):
             await ctx.send(message)
             return
 
-        
-        
-
 
 def majuscule(mess: str) -> str:
     """
     Retire l'intégralité des majuscules de 'mess' et renvoie son équivalent en minuscules.
     """
-    symbmini = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-    symbmaj = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    symbmini = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+                'v', 'w', 'x', 'y', 'z']
+    symbmaj = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
+               'V', 'W', 'X', 'Y', 'Z']
     i = 0
     newmess = ''
     while i < len(mess):
@@ -704,13 +831,10 @@ def majuscule(mess: str) -> str:
     return newmess
 
 
-
-
-
 @bot.command()
 async def stats(ctx, psge: str = None):
     """
-    Affiche les points d'attributs du personnage 'psge'. 
+    Affiche les points d'attributs du personnage 'psge'.
     """
     if psge == None:
         await ctx.send("Vous devez citer une carte-personnage.")
@@ -737,21 +861,18 @@ async def stats(ctx, psge: str = None):
                 nom = item['nom']
 
             em = discord.Embed(title=f'{item["prenom"]} {nom}', color=couleur)
-            em.set_thumbnail(url = f'{item["url"]}')
-            em.add_field(name = "ATT :", value= f'{item["attack"]} ⚔')
-            em.add_field(name= 'DEF :', value=f'{item["defense"]} 🛡')
+            em.set_thumbnail(url=f'{item["url"]}')
+            em.add_field(name="ATT :", value=f'{item["attack"]} ⚔')
+            em.add_field(name='DEF :', value=f'{item["defense"]} 🛡')
             em.add_field(name='INT :', value=f'{item["intelligence"]} 🧠')
             em.add_field(name='STA :', value=f'{item["rarete"]} ⭐')
             em.add_field(name='PPM :', value=f'{item["prix"]} 💰')
 
             await ctx.send(embed=em)
             return
-        
+
     await ctx.send("Aucune carte-personnage ne correspond.")
     return
-
-
-
 
 
 @bot.command()
@@ -785,9 +906,9 @@ async def buy(ctx, psge: str = None):
                 nom = item['nom']
 
             em = discord.Embed(title=f'{item["prenom"]} {nom}', color=couleur)
-            em.add_field(name= 'Manga :', value= f'{item["manga"]}')
-            em.add_field(name = 'Prestige :', value= f"{item['rarete']*'⭐'}")
-            em.add_field(name= 'Prix :', value=f"{item['prix']} PM")
+            em.add_field(name='Manga :', value=f'{item["manga"]}')
+            em.add_field(name='Prestige :', value=f"{item['rarete'] * '⭐'}")
+            em.add_field(name='Prix :', value=f"{item['prix']} PM")
             em.set_image(url=f'{item["url"]}')
 
             await ctx.send(embed=em)
@@ -806,7 +927,8 @@ async def buy(ctx, psge: str = None):
                 return m.author == ctx.author and m.channel == ctx.channel
 
             await asyncio.sleep(5)
-            await ctx.send(f"----------------------------------------------\nÊtes-vous sûr de vouloir acheter {item['prenom']} ?")
+            await ctx.send(
+                f"----------------------------------------------\nÊtes-vous sûr de vouloir acheter {item['prenom']} ?")
 
             try:
                 msg = await bot.wait_for('message', timeout=30.0, check=check)
@@ -830,9 +952,6 @@ async def buy(ctx, psge: str = None):
     return
 
 
-
-
-
 def trouvecarte(indice: int):
     """
     Cherche une carte-personnage dans la liste 'cards' grâce à son indice (['num]}
@@ -841,11 +960,7 @@ def trouvecarte(indice: int):
         if indice == item['num']:
             return item
 
-        
-        
-        
 
-        
 @bot.command()
 async def get_cards_data():
     """
@@ -854,10 +969,6 @@ async def get_cards_data():
     with open('cards.json', 'r') as f:
         users = json.load(f)
     return users
-
-
-
-
 
 
 @bot.command()
@@ -873,28 +984,26 @@ async def setcards(ctx):
         return False
     else:
         users[str(user.id)] = {}
-        users[str(user.id)]['indices'] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        users[str(user.id)]['indices'] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                                          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                                          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                                          0, 0]
 
     with open('cards.json', 'w') as f:
-        json.dump(users,f)
+        json.dump(users, f)
         await ctx.send("Inventaire créé !")
     return True
-
-
-
 
 
 def trouv0(L: list):
     """
     Cherche la première case vide (case contenant l'int 0) dans une list L.
     """
-    
+
     i = 0
     while i < len(L) and L[i] != 0:
         i = i + 1
     return i
-
-
 
 
 @bot.command()
@@ -908,13 +1017,10 @@ async def update_cards(user, indice: str):
     users[str(user.id)]['indices'][whereiszero] = int(indice)
 
     with open('cards.json', 'w') as f:
-        json.dump(users,f)
+        json.dump(users, f)
 
     bal = users[str(user.id)]['indices']
     return bal
-
-
-
 
 
 @bot.command()
@@ -945,20 +1051,16 @@ async def lcards(ctx):
             elif item['rarete'] == 7 or item['rarete'] == 0:
                 couleur = discord.Color.purple()
 
-
             em = discord.Embed(title=f'**{item["prenom"]} {nom}**', color=couleur)
             em.add_field(name='Manga :', value=f'{item["manga"]}')
-            em.add_field(name= 'Prestige :', value =f'{item["rarete"]*"⭐"}')
+            em.add_field(name='Prestige :', value=f'{item["rarete"] * "⭐"}')
             em.set_thumbnail(url=f'{item["url"]}')
             await ctx.send(embed=em)
             await ctx.send('--------------------------------------------------------------------------- \n')
     return
 
 
-
-
 ##################################### FIN DU CODE DU JEU DE CARTES-PERSONNAGES ###################################
-
 
 
 ##################################### SYSTÈME ÉCONOMIQUE ##########################################################
@@ -988,11 +1090,6 @@ async def money(ctx, member: discord.Member = None):
     em.add_field(name='Points Rotules', value=rotule_amt)
     await ctx.send(embed=em)
 
-
-
-    
-    
-    
 
 @bot.command()
 async def batou(ctx, member: discord.Member = None, amount=None):
@@ -1025,10 +1122,6 @@ async def batou(ctx, member: discord.Member = None, amount=None):
                     await ctx.send(
                         f'{member.mention} a perdu {abs(amount)} Points Rotules... François est navré...')
                 return
-
-
-            
-            
 
 
 @bot.command()
@@ -1069,11 +1162,6 @@ async def give(ctx, member: discord.Member = None, amount=None):
                 return
 
 
-
-            
-            
-            
-
 @bot.command()
 async def recupit(ctx, amount=None):
     """
@@ -1102,8 +1190,6 @@ async def recupit(ctx, amount=None):
     await ctx.send(f'Vous avez récupéré {str(amount)} Points-Marrons de votre banque!')
 
 
-
-
 @bot.command()
 async def deposit(ctx, amount=None):
     """
@@ -1130,10 +1216,6 @@ async def deposit(ctx, amount=None):
     await update_bank(ctx.author, amount, "bank")
 
     await ctx.send(f'Vous avez déposé {str(amount)} Points-Marrons dans votre banque!')
-
-
-    
-    
 
 
 @bot.command()
@@ -1166,11 +1248,6 @@ async def send(ctx, member: discord.Member, amount=None):
     await ctx.send(f'{ctx.author} a donné {str(amount)} Points-Marrons à la banque de {member.mention}!')
 
 
-
-
-
-
-
 async def open_account(user):
     """
     Provoque l'ouverture d'un compte en banque à 'user'.
@@ -1190,9 +1267,6 @@ async def open_account(user):
     return True
 
 
-
-
-
 async def get_bank_data():
     """
     Récupère les informations du fichier 'mainbank.json'.
@@ -1200,10 +1274,6 @@ async def get_bank_data():
     with open('mainbank.json', 'r') as f:
         users = json.load(f)
     return users
-
-
-
-
 
 
 async def update_bank(user, change=0, mode='wallet'):
@@ -1221,9 +1291,6 @@ async def update_bank(user, change=0, mode='wallet'):
     return bal
 
 
-
-
-
 async def update_rotule(user, change):
     """
     Modifie la balance de Points-Rotules de 'user', de 'change' Points-Rotules.
@@ -1239,9 +1306,6 @@ async def update_rotule(user, change):
     return bal
 
 
-
-
-
 @bot.command()
 async def liste(ctx):
     """
@@ -1254,9 +1318,6 @@ async def liste(ctx):
         somme = somme + tamt
         await ctx.send(f"{user} a {tamt} Points-Marrons")
     await ctx.send(str(somme))
-
-    
-    
 
 
 @bot.command()
@@ -1353,10 +1414,6 @@ async def lb(ctx, x=5):
             if current != previous_page:
                 await msg.edit(embed=bot.lbpages[current])
 
-                
-                
-
-                
 
 @bot.command(pass_context=True)
 @commands.cooldown(1, 60 * 60 * 3, commands.BucketType.user)
@@ -1401,11 +1458,9 @@ async def claim(ctx):
         await ctx.send(f"Vous avez gagné {gain} Point-Marron ....")
         return
 
-    
-    
+
 ##################################### FIN DU CODE DU SYSTÈME ÉCONOMIQUE ###################################
-    
-    
+
 
 @bot.command(pass_context=True)
 @commands.cooldown(1, 60 * 2, commands.BucketType.user)
@@ -1519,10 +1574,6 @@ async def pileface(ctx):
             await ctx.send(f"Vous avez perdu **{amount}** Points-Marrons...")
 
 
-
-            
-            
-
 def convert(time):
     """
     Permet de convertir un temps donné en secondes en jours, heures, minutes, secondes.
@@ -1541,10 +1592,6 @@ def convert(time):
         return -2
 
     return val * time_dict[unit]
-
-
-
-
 
 
 @bot.command()
@@ -1622,9 +1669,6 @@ async def giveaway(ctx):
     await channel.send(f"Bravo à {winner.mention} qui a gagné {prize} !")
 
 
-
-
-    
 @bot.command()
 async def petition(ctx):
     """
@@ -1649,9 +1693,6 @@ async def petition(ctx):
     return
 
 
-
-
-
 @bot.command()
 async def proces(ctx):
     """
@@ -1672,14 +1713,11 @@ async def proces(ctx):
     return
 
 
-
 ##################################### SYSTÈME MUSICAL ###################################
 
 
 musics = {}
 ytdl = youtube_dl.YoutubeDL()
-
-
 
 
 class Video:
@@ -1688,8 +1726,7 @@ class Video:
         video_format = video["formats"][0]
         self.url = video["webpage_url"]
         self.stream_url = video_format["url"]
-        
-        
+
 
 @bot.command()
 async def leave(ctx):
@@ -1700,11 +1737,7 @@ async def leave(ctx):
     await client.disconnect()
     musics[ctx.guild] = []
 
-    
-    
-    
-    
-    
+
 @bot.command()
 async def pause(ctx):
     """
@@ -1713,11 +1746,8 @@ async def pause(ctx):
     client = ctx.guild.voice_client
     if not client.is_paused():
         client.pause()
-        
-        
-        
-        
-    
+
+
 @bot.command()
 async def resume(ctx):
     """
@@ -1727,10 +1757,7 @@ async def resume(ctx):
     if client.is_paused():
         client.resume()
 
-        
-        
-        
-        
+
 @bot.command()
 async def skip(ctx):
     """
@@ -1738,17 +1765,15 @@ async def skip(ctx):
     """
     client = ctx.guild.voice_client
     client.stop()
-    
-    
-    
-    
+
 
 def play_song(client, queue, song):
     """
     Permet de jouer un son via François.
     """
     source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio(song.stream_url
-        , before_options = "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5"))
+                                                                 ,
+                                                                 before_options="-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5"))
 
     def next(_):
         """
@@ -1762,10 +1787,7 @@ def play_song(client, queue, song):
             asyncio.run_coroutine_threadsafe(client.disconnect(), bot.loop)
 
     client.play(source, after=next)
-    
-    
-    
-    
+
 
 @bot.command()
 async def play(ctx, url):
@@ -1791,4 +1813,4 @@ async def play(ctx, url):
 ##################################### FIN DU CODE DU SYSTÈME MUSICAL ###################################
 
 
-bot.run('Nop ;)')
+bot.run('np')
