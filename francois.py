@@ -1940,4 +1940,4 @@ async def play(ctx, url):
 ##################################### FIN DU CODE DU SYSTÈME MUSICAL ###################################
 
 
-bot.run('NPPPPP')
+bot.run('NOP')
