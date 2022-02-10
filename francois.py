@@ -19,7 +19,7 @@ from param import *
 
 slash = SlashCommand(bot, sync_commands=True)
 
-os.chdir('C:\\Users\\sav\\PycharmProjects\\pythonProject')
+os.chdir('C:\\Users\\antoi\\Desktop\\pythonProject')
 
 bot = discord.ext.commands.Bot(command_prefix="!", description="Prefix : !")
 
@@ -466,16 +466,16 @@ cards = [{'prenom': 'Eren', 'nom': 'JAEGER', 'manga': 'Shingeki no Kyojin',
           'rarete': 3, 'prix': rar[3], 'num': 25, 'attack': 25, 'defense': 150, 'intelligence': 50},
          {'prenom': 'Eijiro', 'nom': 'KIRISHIMA', 'manga': 'My Hero Academia', 'url': 'https://i.imgur.com/LzkdIQe.png',
           'rarete': 2, 'prix': rar[2], 'num': 26, 'attack': 50, 'defense': 75, 'intelligence': 25},
-         {'prenom': 'Eren', 'nom': 'JAEGER', 'manga': 'Shingeki no Kyojin',
+         {'prenom': 'Eren', 'nom': 'ENFANT', 'manga': 'Shingeki no Kyojin',
           'url': 'https://images-ext-2.discordapp.net/external/IdHhaW_g3TsNlbtZ9GJ7k0O62X2VQANc4rns0l4DaTw/https/imgur.com/evOZYlZ.png',
           'rarete': 0, 'prix': rar[0], 'num': 27, 'attack': 0, 'defense': 0, 'intelligence': 0},
-         {'prenom': 'Izuku', 'nom': 'MIDORIYA', 'manga': 'My Hero Academia',
+         {'prenom': 'Izuku', 'nom': 'ENFANT', 'manga': 'My Hero Academia',
           'url': 'https://media.discordapp.net/attachments/914892398918787174/939865053065265202/crop.png?width=325&height=558',
           'rarete': 0, 'prix': rar[0], 'num': 28, 'attack': 0, 'defense': 0, 'intelligence': 0},
-         {'prenom': 'Guts', 'nom': '-', 'manga': 'Berserk',
+         {'prenom': 'Guts', 'nom': 'ENFANT', 'manga': 'Berserk',
           'url': 'https://images-ext-1.discordapp.net/external/vckvsf2Q94Gmbw3DAcO1NVjKzGOl8iGeDPR04PZFIqg/https/imgur.com/dTfwXmX.png',
           'rarete': 0, 'prix': rar[0], 'num': 29, 'attack': 0, 'defense': 0, 'intelligence': 0},
-         {'prenom': 'Senku', 'nom': 'ISHIGAMI', 'manga': 'Dr.STONE',
+         {'prenom': 'Senku', 'nom': 'ENFANT', 'manga': 'Dr.STONE',
           'url': 'https://media.discordapp.net/attachments/914892398918787174/939865653081423902/unknown.png?width=442&height=559',
           'rarete': 0, 'prix': rar[0], 'num': 30, 'attack': 0, 'defense': 0, 'intelligence': 0},
          {'prenom': 'Xeno', 'nom': 'HOUSTON WINGFIELD', 'manga': 'Dr.STONE',
@@ -739,10 +739,11 @@ def verifnombre(text):
 
 
 @bot.command()
-async def search(ctx, recherche):
+async def search(ctx, *,recherche):
     """
     Permet de chercher une carte-personnage par un indice, par un nombre d'étoiles, par un nom de manga.
     """
+    print(recherche)
     if verifnombre(recherche):
         for item in cards:
             if item['num'] == int(recherche):
@@ -840,7 +841,7 @@ async def stats(ctx, psge: str = None):
         await ctx.send("Vous devez citer une carte-personnage.")
         return
     for item in cards:
-        if majuscule(item['prenom']) == majuscule(psge) or majuscule(item['nom']) == majuscule(psge):
+        if majuscule(f'{item["prenom"]} {item["nom"]}') == majuscule(psge) or majuscule(f'{item["nom"]} {item["prenom"]}') == majuscule(psge) or majuscule(item['prenom']) == majuscule(psge) or majuscule(item['nom']) == majuscule(psge):
             couleur = discord.Color.light_grey()
             if item['rarete'] == 2:
                 couleur = discord.Color.dark_green()
@@ -920,7 +921,7 @@ async def buy(ctx, psge: str = None):
 
             bal = await update_bank(ctx.author)
             if bal[0] < item['prix']:
-                await ctx.send("Vous n'avez pas suffisamment de Points-Marrons !")
+                await ctx.send(f"Vous n'avez pas suffisamment de Points-Marrons pour vous payer la carte de {item['prenom']}!\nIl vous manque ``{item['prix'] - bal[0]} PM`` dans votre _Porte-Marrons_ pour l'acheter.")
                 return
 
             def check(m):
@@ -937,11 +938,21 @@ async def buy(ctx, psge: str = None):
                 return
 
             if msg.content == 'o' or msg.content == 'O' or msg.content == 'y' or msg.content == 'Y' or msg.content == 'oui' or msg.content == 'yes' or msg.content == 'YES' or msg.content == 'OUI' or msg.content == 'Yes' or msg.content == 'Oui':
+                await asyncio.sleep(1)
+                await ctx.send("Achat en cours...")
+                await asyncio.sleep(1)
                 await update_cards(ctx.author, item['num'])
                 await update_bank(ctx.author, -item['prix'])
-                await ctx.send(f"-{item['prix']} PM....")
+                await asyncio.sleep(3)
+                await ctx.send("Achat effectué !")
+                await asyncio.sleep(2)
+                bal = await update_bank(ctx.author)
+                em2 = discord.Embed(title= "INFOS", colour= discord.Color.red())
+                em2.add_field(name = "Coût :", value = f"``-{item['prix']} PM``")
+                em2.add_field(name = "Porte-Marrons :", value = f"{bal[0]}")
                 await asyncio.sleep(1)
                 await ctx.send(f"Vous avez acheté {item['prenom']} ! Merci pour votre achat !")
+                await ctx.send(embed=em2)
                 return
 
             else:
@@ -952,6 +963,80 @@ async def buy(ctx, psge: str = None):
     return
 
 
+@bot.command()
+async def cclaim(ctx):
+    nb = random.randint(1,100)
+    print(nb)
+    if nb <= 70:
+        raret = 1
+        couleur = discord.Color.light_grey()
+    elif nb <= 84:
+        raret = 2
+        couleur = discord.Color.dark_green()
+    elif nb <= 92:
+        raret = 3
+        couleur = discord.Color.blue()
+    elif nb <= 97:
+        raret = 4
+        couleur = discord.Color.red()
+    elif nb <= 99:
+        raret = 5
+        couleur = discord.Color.dark_gold()
+    else:
+        nb = random.randint(1,100)
+        if nb <= 70:
+            raret = 5
+            couleur = discord.Color.dark_gold()
+        elif nb <= 99:
+            raret = 6
+            couleur = discord.Color.gold()
+        else:
+            nb = random.randint(1,100)
+            if nb <= 77:
+                raret = 6
+                couleur = discord.Color.gold()
+            else:
+                raret = 7
+                couleur = discord.Color.purple()
+
+
+    raradapt = []
+    for item in cards:
+        if item['rarete'] == raret:
+            raradapt.append(item['num'])
+    obt = random.choice(raradapt)
+
+    if cards[obt-1]['nom'] == '-' or cards[obt-1]['nom'] == 'ENFANT':
+        nom = ''
+    else:
+        nom = item['nom']
+
+    em = discord.Embed(title=f"{cards[obt-1]['prenom']} {nom}", color=couleur)
+    em.add_field(name="Manga :", value=f"{cards[obt-1]['manga']}")
+    em.add_field(name="Prestige :", value=f"{cards[obt-1]['rarete']*'⭐'}")
+    em.add_field(name="Prix :", value=f"{cards[obt-1]['prix']}")
+    em.add_field(name="Prix de revente:", value=f"{cards[obt-1]['prix']//2}")
+    em.set_image(url=f"{cards[obt-1]['url']}")
+    await ctx.send(embed=em)
+    await asyncio.sleep(2)
+    users = await get_cards_data()
+    print(cards[obt-1]['num'])
+    print(users[str(ctx.author.id)]['indices'])
+
+    if not cards[obt-1]['num'] in users[str(ctx.author.id)]['indices']:
+        whereiszero = trouv0(users[str(ctx.author.id)]['indices'])
+        print(whereiszero)
+        print(users[str(ctx.author.id)]['indices'][whereiszero])
+        await update_cards(ctx.author, cards[obt-1]['num'])
+        await ctx.send(f"Vous possédez à présent la carte de {cards[obt-1]['prenom']} ! Félicitations !")
+        return
+    else:
+        await ctx.send(f"Vous possédez déjà la carte de {cards[obt-1]['prenom']}.")
+        await ctx.send(f"Vous gagnez {cards[obt-1]['prix']//2} Points-Marrons !")
+        await update_bank(ctx.author, cards[obt-1]['prix']//2)
+        return
+
+
 def trouvecarte(indice: int):
     """
     Cherche une carte-personnage dans la liste 'cards' grâce à son indice (['num]}
@@ -959,6 +1044,8 @@ def trouvecarte(indice: int):
     for item in cards:
         if indice == item['num']:
             return item
+
+
 
 
 @bot.command()
@@ -1029,13 +1116,9 @@ async def lcards(ctx):
     Renvoie la liste des cartes-personnages possédées par ctx.author.
     """
     users = await get_cards_data()
-    await ctx.send('--------------------------------------------------------------------------- \n')
+    bot.lbpages = []
     for item in cards:
         if item["num"] in users[str(ctx.author.id)]['indices']:
-            if item['nom'] == '-':
-                nom = ''
-            else:
-                nom = item['nom']
 
             couleur = discord.Color.light_grey()
             if item['rarete'] == 2:
@@ -1048,15 +1131,55 @@ async def lcards(ctx):
                 couleur = discord.Color.dark_gold()
             elif item['rarete'] == 6:
                 couleur = discord.Color.gold()
-            elif item['rarete'] == 7 or item['rarete'] == 0:
+            elif item['rarete'] == 7:
                 couleur = discord.Color.purple()
 
-            em = discord.Embed(title=f'**{item["prenom"]} {nom}**', color=couleur)
-            em.add_field(name='Manga :', value=f'{item["manga"]}')
-            em.add_field(name='Prestige :', value=f'{item["rarete"] * "⭐"}')
-            em.set_thumbnail(url=f'{item["url"]}')
-            await ctx.send(embed=em)
-            await ctx.send('--------------------------------------------------------------------------- \n')
+            if item['nom'] == '-':
+                nom = ''
+            else:
+                nom = item['nom']
+
+            em = discord.Embed(title=f"{item['prenom']} {nom}", color= couleur)
+            em.add_field(name= "Manga :", value=f"{item['manga']}")
+            em.add_field(name = 'Prestige', value=f'{item["rarete"]*"⭐"}')
+            em.add_field(name="Prix :", value=f"{item['prix']}")
+            em.set_image(url=f'{item["url"]}')
+            bot.lbpages.append(em)
+    buttons = ['◀', '▶']
+    current = 0
+    msg = await ctx.send(embed=bot.lbpages[current])
+
+    for button in buttons:
+        await msg.add_reaction(button)
+
+    while True:
+        try:
+            reaction, user = await bot.wait_for('reaction_add', check=lambda reaction,user: user == ctx.author and reaction.emoji in buttons,timeout=60.0)
+        except asyncio.TimeoutError:
+            embed = bot.lbpages[current]
+            embed.set_footer(text="temps écoulé.")
+            await msg.clear_reactions()
+
+        else:
+            previous_page = current
+
+            if reaction.emoji == '◀':
+                if current == 0:
+                    current = len(bot.lbpages)-1
+                else:
+                    current = current - 1
+
+            else:
+                if current == len(bot.lbpages)-1:
+                    current = 0
+                else:
+                    current = current + 1
+
+            for button in buttons:
+                await msg.remove_reaction(button, ctx.author)
+
+            if current != previous_page:
+                await msg.edit(embed=bot.lbpages[current])
     return
 
 
@@ -1153,7 +1276,8 @@ async def give(ctx, member: discord.Member = None, amount=None):
                         (f"{member.mention} a reçu {str(amount)} Point-Marron du Dieu des Marrons ! Félicitations !")
                 elif int(amount) == 0:
                     await ctx.send \
-                        (f"Le Dieu des Marrons a fait une blague de très mauvais goût et a donné 0 Point-Marron à {member.mention}!")
+                        (
+                            f"Le Dieu des Marrons a fait une blague de très mauvais goût et a donné 0 Point-Marron à {member.mention}!")
 
                 elif int(amount) < 0:
                     amount = abs(int(amount))
@@ -1239,7 +1363,8 @@ async def send(ctx, member: discord.Member, amount=None):
 
     if amount < 0:
         await ctx.send \
-            (f"Vous ne pouvez pas voler des Points-Marrons de cette manière à {member.mention} enfin! À quoi pensiez-vous, brigand des mers du Nord ?!")
+            (
+                f"Vous ne pouvez pas voler des Points-Marrons de cette manière à {member.mention} enfin! À quoi pensiez-vous, brigand des mers du Nord ?!")
         return
 
     await update_bank(ctx.author, (-1) * amount)
@@ -1448,7 +1573,8 @@ async def claim(ctx):
         else:
             gain = 5000
             await ctx.send \
-                ("VOUS AVEZ GAGNÉ LE GROS LOT ! C'EST EXCEPTIONNEL CE QUI SE PASSE CE SOIR !!!!\n C'EST SENSATIONNEL !!!!! BRAVO !!!!! VOUS AVEZ LE TICKET GAGNANT !!!!!")
+                (
+                    "VOUS AVEZ GAGNÉ LE GROS LOT ! C'EST EXCEPTIONNEL CE QUI SE PASSE CE SOIR !!!!\n C'EST SENSATIONNEL !!!!! BRAVO !!!!! VOUS AVEZ LE TICKET GAGNANT !!!!!")
 
     await update_bank(ctx.author, gain)
     if gain > 1:
@@ -1675,7 +1801,8 @@ async def petition(ctx):
     Permet à ctx.author d'organiser une pétition.
     """
     await ctx.send \
-        ("Pourquoi souhaitez vous faire une pétition ? Vous avez 30 secondes. Coefficient 3, la note comptera pour le 2e trimestre.")
+        (
+            "Pourquoi souhaitez vous faire une pétition ? Vous avez 30 secondes. Coefficient 3, la note comptera pour le 2e trimestre.")
 
     def check(m):
         return m.author == ctx.author and m.channel == ctx.channel
@@ -1813,4 +1940,4 @@ async def play(ctx, url):
 ##################################### FIN DU CODE DU SYSTÈME MUSICAL ###################################
 
 
-bot.run('np')
+bot.run('NPPPPP')
