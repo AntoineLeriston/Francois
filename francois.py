@@ -383,7 +383,7 @@ Jeu de cartes-personnages : JCP (Jean-Christophe-Paul lolilolxdptdr)
 """
 
 # Ici, on définit les prix des différents niveaux de prestige des cartes.
-rar = [0, 2500, 4500, 10000, 25000, 50000, 100000, 1000000]
+rar = [0, 1500, 3000, 10000, 25000, 100000, 300000, 1000000]
 
 # Ici, tous les réglages de toutes les cartes.
 # Cela se présente de la manière suivante:
@@ -743,8 +743,10 @@ async def search(ctx, *,recherche):
     """
     Permet de chercher une carte-personnage par un indice, par un nombre d'étoiles, par un nom de manga.
     """
-    print(recherche)
+
     if verifnombre(recherche):
+        if int(recherche) > len(cards) - 1:
+            await ctx.send("Aucune carte-personnage ne correspond à cet indice.")
         for item in cards:
             if item['num'] == int(recherche):
                 couleur = discord.Color.light_grey()
@@ -779,6 +781,7 @@ async def search(ctx, *,recherche):
                 em.add_field(name='Manga :', value=f'{item["manga"]}')
                 em.add_field(name="Prestige :", value=f"{item['rarete'] * '⭐'}")
                 em.add_field(name="Prix :", value=f"{item['prix']} PM")
+                em.add_field(name="Indice :", value=f"{item['num']}")
                 em.set_image(url=f"{item['url']}")
 
                 await ctx.send(embed=em)
@@ -851,9 +854,9 @@ async def stats(ctx, psge: str = None):
                 couleur = discord.Color.red()
             elif item['rarete'] == 5:
                 couleur = discord.Color.dark_gold()
-            elif item['rarete'] == 6:
+            elif item['rarete'] == 6 or item['rarete'] == 0:
                 couleur = discord.Color.gold()
-            elif item['rarete'] == 7 or item['rarete'] == 0:
+            elif item['rarete'] == 7:
                 couleur = discord.Color.purple()
 
             if item['nom'] == '-' or item['nom'] == 'ENFANT':
@@ -910,6 +913,7 @@ async def buy(ctx, psge: str = None):
             em.add_field(name='Manga :', value=f'{item["manga"]}')
             em.add_field(name='Prestige :', value=f"{item['rarete'] * '⭐'}")
             em.add_field(name='Prix :', value=f"{item['prix']} PM")
+            em.add_field(name="Indice :", value=f"{item['num']}")
             em.set_image(url=f'{item["url"]}')
 
             await ctx.send(embed=em)
@@ -966,7 +970,6 @@ async def buy(ctx, psge: str = None):
 @bot.command()
 async def cclaim(ctx):
     nb = random.randint(1,100)
-    print(nb)
     if nb <= 70:
         raret = 1
         couleur = discord.Color.light_grey()
@@ -999,23 +1002,23 @@ async def cclaim(ctx):
                 raret = 7
                 couleur = discord.Color.purple()
 
-
     raradapt = []
     for item in cards:
         if item['rarete'] == raret:
             raradapt.append(item['num'])
     obt = random.choice(raradapt)
 
-    if cards[obt-1]['nom'] == '-' or cards[obt-1]['nom'] == 'ENFANT':
+    if cards[obt-1]['nom'] == '-':
         nom = ''
     else:
-        nom = item['nom']
+        nom = cards[obt-1]['nom']
 
     em = discord.Embed(title=f"{cards[obt-1]['prenom']} {nom}", color=couleur)
     em.add_field(name="Manga :", value=f"{cards[obt-1]['manga']}")
     em.add_field(name="Prestige :", value=f"{cards[obt-1]['rarete']*'⭐'}")
     em.add_field(name="Prix :", value=f"{cards[obt-1]['prix']}")
-    em.add_field(name="Prix de revente:", value=f"{cards[obt-1]['prix']//2}")
+    em.add_field(name="Prix de revente :", value=f"{cards[obt-1]['prix']//2}")
+    em.add_field(name="Indice :", value=f"{cards[obt-1]['num']}")
     em.set_image(url=f"{cards[obt-1]['url']}")
     await ctx.send(embed=em)
     await asyncio.sleep(2)
@@ -1035,6 +1038,55 @@ async def cclaim(ctx):
         await ctx.send(f"Vous gagnez {cards[obt-1]['prix']//2} Points-Marrons !")
         await update_bank(ctx.author, cards[obt-1]['prix']//2)
         return
+
+
+@bot.command()
+async def sell(ctx, *,text):
+    users = await get_cards_data()
+    if verifnombre(text):
+        print(text)
+        text = int(text)
+        i = 0
+        if text > len(cards) - 1:
+            await ctx.send("Indice invalide")
+        print(cards[i])
+        while cards[i]['num'] != text:
+            i = i + 1
+        await ctx.send(f"gros j'ai trouvé c'est {cards[i]['prenom']}")
+        print(cards[i]['num'])
+        print(users[str(ctx.author.id)])
+        print(cards[i]['num'] in users[str(ctx.author.id)])
+        if cards[i]['num'] in users[str(ctx.author.id)]:
+            couleur = discord.Color.light_grey()
+            item = cards[i]
+            if item['rarete'] == 2:
+                couleur = discord.Color.dark_green()
+            elif item['rarete'] == 3:
+                couleur = discord.Color.blue()
+            elif item['rarete'] == 4:
+                couleur = discord.Color.red()
+            elif item['rarete'] == 5:
+                couleur = discord.Color.dark_gold()
+            elif item['rarete'] == 6:
+                couleur = discord.Color.gold()
+            elif item['rarete'] == 7:
+                couleur = discord.Color.purple()
+
+            if item['nom'] == '-':
+                nom = ''
+            else:
+                nom = item['nom']
+
+            em = discord.Embed(title=f"{cards[i]['prenom']} {nom}", color=couleur)
+            em.add_field(name="Manga :", value=f"{cards[i]['manga']}")
+            em.add_field(name="Prestige :", value=f"{cards[i]['rarete']*'⭐'}")
+            em.add_field(name="Revente :", value=f"{cards[i]['prix']//2}")
+            em.set_image(url=f"{cards[i]['url']}")
+
+            await ctx.send(embed=em)
+        else:
+            await ctx.send("Vous ne pouvez pas vendre une carte-personnage que vous ne possédez pas.")
+
 
 
 def trouvecarte(indice: int):
@@ -1111,7 +1163,7 @@ async def update_cards(user, indice: str):
 
 
 @bot.command()
-async def lcards(ctx):
+async def scards(ctx):
     """
     Renvoie la liste des cartes-personnages possédées par ctx.author.
     """
@@ -1184,6 +1236,121 @@ async def lcards(ctx):
 
 
 ##################################### FIN DU CODE DU JEU DE CARTES-PERSONNAGES ###################################
+
+
+
+@bot.command()
+async def calc(ctx):
+    """
+    Demande à ctx.author de rendre le nombre proposé au carré. Continue tant que ctx.author réussit.
+    """
+    oper = ['+', '-', '*', '//', '/', '%', '**2', '**3', 'delta', "f'"]
+    Vic = True
+    i = 0
+    while Vic:
+        op = random.choice(oper)
+        if op == '+':
+            nb1 = random.randint(-100,350)
+            nb2 = random.randint(-100, 350)
+            res = nb1 + nb2
+
+            def check2(m):
+                return m.author == ctx.author and m.channel == ctx.channel
+
+            await ctx.send(f"Combien font {nb1} + {nb2} ? Vous avez 10 secondes.")
+
+            try:
+                msg = await bot.wait_for('message', timeout=10.0, check=check2)
+            except asyncio.TimeoutError:
+                await ctx.send("Vous n'avez pas répondu suffisament rapidement, la partie est perdue.")
+                await ctx.send(f"Puissance calculatrice : {i}")
+                Vic = False
+                return
+
+            if int(msg.content) == int(res):
+                await ctx.send(f"La réponse était bien {res} ! Bravo ! Vous pouvez passer à l'étape {i+2}.")
+            else:
+                await ctx.send(f"ARG ! La réponse était {res} !!! François se décompose en vous voyant en échec. N'hésitez surtout pas à retenter votre chance.")
+                await ctx.send(f"Puissance calculatrice : {i}")
+                Vic = False
+                return
+
+        elif op == '-':
+            nb1 = random.randint(-100, 350)
+            nb2 = random.randint(-100, 350)
+            res = nb1 - nb2
+
+            def check2(m):
+                return m.author == ctx.author and m.channel == ctx.channel
+
+            await ctx.send(f"Combien font {nb1} - {nb2} ? Vous avez 10 secondes.")
+
+            try:
+                msg = await bot.wait_for('message', timeout=10.0, check=check2)
+            except asyncio.TimeoutError:
+                await ctx.send("Vous n'avez pas répondu suffisament rapidement, la partie est perdue.")
+                await ctx.send(f"Puissance calculatrice : {i}")
+                Vic = False
+                return
+
+            if int(msg.content) == int(res):
+                await ctx.send(f"La réponse était bien {res} ! Bravo ! Vous pouvez passer à l'étape {i + 2}.")
+            else:
+                await ctx.send(
+                    f"ARG ! La réponse était {res} !!! François se décompose en vous voyant en échec. N'hésitez surtout pas à retenter votre chance.")
+                await ctx.send(f"Puissance calculatrice : {i}")
+                Vic = False
+                return
+
+        elif op == '*':
+            nb1 = random.randint(11, 119)
+            nb2 = random.randint(-5,119)
+            res = nb1*nb2
+
+            if nb1 % 5 == 0 or nb2 % 5 == 0 or nb1 % 2 == 0 or nb2 % 2 == 0:
+                time = 5
+            elif nb2 == 0:
+                time = 3
+            elif nb2 < 0:
+                time = 7
+            elif nb1 < 20 or nb2 < 20:
+                time = 15
+            elif nb1 < 50 or nb2 < 50:
+                time = 30
+            elif nb1 < 75 or nb2 < 75:
+                time = 40
+            elif nb1 < 100 or nb2 < 100:
+                time = 45
+            else:
+                time = 60
+
+            def check2(m):
+                return m.author == ctx.author and m.channel == ctx.channel
+
+            await ctx.send(f"Combien font {nb1} * {nb2} ? Vous avez {time} secondes.")
+
+            try:
+                msg = await bot.wait_for('message', timeout=time, check=check2)
+            except asyncio.TimeoutError:
+                await ctx.send("Vous n'avez pas répondu suffisament rapidement, la partie est perdue.")
+                await ctx.send(f"Puissance calculatrice : {i}")
+                Vic = False
+                return
+
+            if int(msg.content) == int(res):
+                await ctx.send(f"La réponse était bien {res} ! Bravo ! Vous pouvez passer à l'étape {i + 2}.")
+            else:
+                await ctx.send(
+                    f"ARG ! La réponse était {res} !!! François se décompose en vous voyant en échec. N'hésitez surtout pas à retenter votre chance.")
+                await ctx.send(f"Puissance calculatrice : {i}")
+                Vic = False
+                return
+
+        elif op == '//':
+
+        i = i + 1
+
+
 
 
 ##################################### SYSTÈME ÉCONOMIQUE ##########################################################
@@ -1940,4 +2107,4 @@ async def play(ctx, url):
 ##################################### FIN DU CODE DU SYSTÈME MUSICAL ###################################
 
 
-bot.run('NOP')
+bot.run('NP')
